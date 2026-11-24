@@ -1,0 +1,693 @@
+{
+ "v": 1,
+ "upd": "2026-11-24T12:00:00.000Z",
+ "S": {
+  "seasons": [
+   {
+    "id": "s1",
+    "name": "3° Lega 2026/27",
+    "closed": false,
+    "recs": [],
+    "pd": [
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Simone Bini",
+      "d": "Tron Altar"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Roberto Becucci",
+      "d": "R Madness"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Federico Noviello",
+      "d": "WW Convoke"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Matteo Skelly",
+      "d": "R Rally"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Filippo Massarelli",
+      "d": "U terror"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Samuele Bacciarelli",
+      "d": "Tron Fog"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Giovanni Bertelli",
+      "d": "WR Moxite"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Matteo Buresta",
+      "d": "U terror"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Alessandro Pela",
+      "d": "U Fate"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Francesco Baldi",
+      "d": "UBR Affinity"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Sebastiano Fornasari",
+      "d": "U terror"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Riccardo Teri",
+      "d": "U terror"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Andrea Fagotti",
+      "d": "BR Madness"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Tommaso Corsani",
+      "d": "WRG Gates"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Fatlum Bajraku",
+      "d": "WR Moxite"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Alessandro Fabbri",
+      "d": "WU Famigli"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Marco Battaglia",
+      "d": "R Rally"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Mattia Schiavone",
+      "d": "RG Storm"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Filippo Coleschi",
+      "d": "Tron Monster"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Fulvio Cavaliere",
+      "d": "WG Boogle"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Tommy Neve",
+      "d": "WG Boogle"
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "n": "Giovanni Bettarini",
+      "d": "U Fate"
+     }
+    ],
+    "pr": [
+     {
+      "g": 1,
+      "t": "M",
+      "r": 1,
+      "a": "Matteo Buresta",
+      "b": "Simone Bini",
+      "ga": 1,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 1,
+      "a": "Alessandro Pela",
+      "b": "Giovanni Bertelli",
+      "ga": 1,
+      "gb": 1,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 1,
+      "a": "Marco Battaglia",
+      "b": "Filippo Coleschi",
+      "ga": 2,
+      "gb": 0,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 1,
+      "a": "Matteo Skelly",
+      "b": "Tommy Neve",
+      "ga": 2,
+      "gb": 1,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 1,
+      "a": "Mattia Schiavone",
+      "b": "Filippo Massarelli",
+      "ga": 1,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 1,
+      "a": "Roberto Becucci",
+      "b": "Francesco Baldi",
+      "ga": 2,
+      "gb": 1,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 1,
+      "a": "Riccardo Teri",
+      "b": "Alessandro Fabbri",
+      "ga": 2,
+      "gb": 0,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 1,
+      "a": "Samuele Bacciarelli",
+      "b": "Sebastiano Fornasari",
+      "ga": 1,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 1,
+      "a": "Andrea Fagotti",
+      "b": "Fatlum Bajraku",
+      "ga": 2,
+      "gb": 0,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 1,
+      "a": "Fulvio Cavaliere",
+      "b": "Federico Noviello",
+      "ga": 1,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 1,
+      "a": "Giovanni Bettarini",
+      "b": "Tommaso Corsani",
+      "ga": 0,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 2,
+      "a": "Tommaso Corsani",
+      "b": "Simone Bini",
+      "ga": 0,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 2,
+      "a": "Filippo Massarelli",
+      "b": "Roberto Becucci",
+      "ga": 1,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 2,
+      "a": "Andrea Fagotti",
+      "b": "Riccardo Teri",
+      "ga": 1,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 2,
+      "a": "Matteo Skelly",
+      "b": "Sebastiano Fornasari",
+      "ga": 2,
+      "gb": 1,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 2,
+      "a": "Marco Battaglia",
+      "b": "Federico Noviello",
+      "ga": 0,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 2,
+      "a": "Alessandro Pela",
+      "b": "Fulvio Cavaliere",
+      "ga": 2,
+      "gb": 0,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 2,
+      "a": "Giovanni Bertelli",
+      "b": "Giovanni Bettarini",
+      "ga": 2,
+      "gb": 1,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 2,
+      "a": "Filippo Coleschi",
+      "b": "Matteo Buresta",
+      "ga": 1,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 2,
+      "a": "Mattia Schiavone",
+      "b": "Alessandro Fabbri",
+      "ga": 1,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 2,
+      "a": "Tommy Neve",
+      "b": "Francesco Baldi",
+      "ga": 0,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 2,
+      "a": "Fatlum Bajraku",
+      "b": "Samuele Bacciarelli",
+      "ga": 1,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 3,
+      "a": "Roberto Becucci",
+      "b": "Simone Bini",
+      "ga": 1,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 3,
+      "a": "Federico Noviello",
+      "b": "Matteo Skelly",
+      "ga": 2,
+      "gb": 0,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 3,
+      "a": "Riccardo Teri",
+      "b": "Giovanni Bertelli",
+      "ga": 1,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 3,
+      "a": "Alessandro Pela",
+      "b": "Francesco Baldi",
+      "ga": 1,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 3,
+      "a": "Tommaso Corsani",
+      "b": "Matteo Buresta",
+      "ga": 1,
+      "gb": 1,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 3,
+      "a": "Alessandro Fabbri",
+      "b": "Filippo Massarelli",
+      "ga": 0,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 3,
+      "a": "Sebastiano Fornasari",
+      "b": "Andrea Fagotti",
+      "ga": 1,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 3,
+      "a": "Samuele Bacciarelli",
+      "b": "Marco Battaglia",
+      "ga": 2,
+      "gb": 0,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 3,
+      "a": "Mattia Schiavone",
+      "b": "Filippo Coleschi",
+      "ga": 2,
+      "gb": 0,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 3,
+      "a": "Fatlum Bajraku",
+      "b": null,
+      "ga": 0,
+      "gb": 0,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 4,
+      "a": "Simone Bini",
+      "b": "Federico Noviello",
+      "ga": 2,
+      "gb": 1,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 4,
+      "a": "Giovanni Bertelli",
+      "b": "Roberto Becucci",
+      "ga": 1,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 4,
+      "a": "Francesco Baldi",
+      "b": "Samuele Bacciarelli",
+      "ga": 0,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 4,
+      "a": "Andrea Fagotti",
+      "b": "Filippo Massarelli",
+      "ga": 0,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 4,
+      "a": "Matteo Skelly",
+      "b": "Riccardo Teri",
+      "ga": 2,
+      "gb": 0,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 4,
+      "a": "Tommaso Corsani",
+      "b": "Alessandro Pela",
+      "ga": 0,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 4,
+      "a": "Matteo Buresta",
+      "b": "Marco Battaglia",
+      "ga": 2,
+      "gb": 0,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 4,
+      "a": "Mattia Schiavone",
+      "b": "Sebastiano Fornasari",
+      "ga": 0,
+      "gb": 2,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 4,
+      "a": "Fatlum Bajraku",
+      "b": "Alessandro Fabbri",
+      "ga": 1,
+      "gb": 1,
+      "gd": 0
+     },
+     {
+      "g": 1,
+      "t": "M",
+      "r": 4,
+      "a": "Filippo Coleschi",
+      "b": null,
+      "ga": 0,
+      "gb": 0,
+      "gd": 0
+     }
+    ]
+   }
+  ],
+  "cur": "s1"
+ },
+ "EVT": [
+  {
+   "d": "2026-11-18",
+   "h": "21:00",
+   "id": "g1m",
+   "n": "Firenze Comics & Games, Piazza Dalmazia 2",
+   "t": "1ª giornata · Mercoledì"
+  },
+  {
+   "d": "2026-11-29",
+   "h": "15:00",
+   "id": "g1d",
+   "n": "Firenze Comics & Games, Piazza Dalmazia 2",
+   "t": "1ª giornata · Domenica"
+  },
+  {
+   "d": "2026-11-25",
+   "h": "21:00",
+   "id": "g2m",
+   "n": "Firenze Comics & Games, Piazza Dalmazia 2",
+   "t": "2ª giornata · Mercoledì"
+  },
+  {
+   "d": "2026-12-13",
+   "h": "15:00",
+   "id": "g2d",
+   "n": "Firenze Comics & Games, Piazza Dalmazia 2",
+   "t": "2ª giornata · Domenica"
+  },
+  {
+   "d": "2026-12-02",
+   "h": "21:00",
+   "id": "g3m",
+   "n": "Firenze Comics & Games, Piazza Dalmazia 2",
+   "t": "3ª giornata · Mercoledì"
+  },
+  {
+   "d": "2026-12-27",
+   "h": "15:00",
+   "id": "g3d",
+   "n": "Firenze Comics & Games, Piazza Dalmazia 2",
+   "t": "3ª giornata · Domenica"
+  },
+  {
+   "d": "2026-12-09",
+   "h": "21:00",
+   "id": "g4m",
+   "n": "Firenze Comics & Games, Piazza Dalmazia 2",
+   "t": "4ª giornata · Mercoledì"
+  },
+  {
+   "d": "2027-01-10",
+   "h": "15:00",
+   "id": "g4d",
+   "n": "Firenze Comics & Games, Piazza Dalmazia 2",
+   "t": "4ª giornata · Domenica"
+  },
+  {
+   "d": "2027-01-13",
+   "h": "21:00",
+   "id": "g5m",
+   "n": "Firenze Comics & Games, Piazza Dalmazia 2",
+   "t": "5ª giornata · Mercoledì"
+  },
+  {
+   "d": "2027-01-17",
+   "h": "15:00",
+   "id": "g5d",
+   "n": "Firenze Comics & Games, Piazza Dalmazia 2",
+   "t": "5ª giornata · Domenica"
+  },
+  {
+   "d": "2027-01-27",
+   "h": "21:00",
+   "id": "g6m",
+   "n": "Firenze Comics & Games, Piazza Dalmazia 2",
+   "t": "6ª giornata · Mercoledì"
+  },
+  {
+   "d": "2027-01-24",
+   "h": "15:00",
+   "id": "g6d",
+   "n": "Firenze Comics & Games, Piazza Dalmazia 2",
+   "t": "6ª giornata · Domenica"
+  },
+  {
+   "d": "2027-02-03",
+   "h": "21:00",
+   "id": "g7m",
+   "n": "Firenze Comics & Games, Piazza Dalmazia 2",
+   "t": "7ª giornata · Mercoledì"
+  },
+  {
+   "d": "2027-02-14",
+   "h": "15:00",
+   "id": "g7d",
+   "n": "Firenze Comics & Games, Piazza Dalmazia 2",
+   "t": "7ª giornata · Domenica"
+  },
+  {
+   "d": "2027-02-10",
+   "h": "21:00",
+   "id": "g8m",
+   "n": "Firenze Comics & Games, Piazza Dalmazia 2",
+   "t": "8ª giornata · Mercoledì"
+  },
+  {
+   "d": "2027-02-21",
+   "h": "15:00",
+   "id": "g8d",
+   "n": "Firenze Comics & Games, Piazza Dalmazia 2",
+   "t": "8ª giornata · Domenica"
+  },
+  {
+   "d": "2027-02-28",
+   "h": "",
+   "id": "top8",
+   "n": "Firenze Comics & Games, Piazza Dalmazia 2",
+   "t": "TOP 8 finale"
+  }
+ ],
+ "TEAMS": []
+}
