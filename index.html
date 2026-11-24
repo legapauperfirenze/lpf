@@ -270,6 +270,57 @@ button.b,button.g{border-radius:999px!important}
 button.b,button.g{text-transform:none!important;letter-spacing:0!important;font-weight:700!important}
 @media(max-width:640px){#bar .row.bar{border-radius:20px}.pghead{margin-top:2px}}
 
+.dth{display:inline-block;width:46px;height:34px;border-radius:8px;object-fit:cover;vertical-align:middle;margin-right:8px;background:var(--row);box-shadow:0 2px 6px rgba(0,0,0,.18)}
+.dth.lg{width:96px;height:70px;margin:0}.dth.none{box-shadow:none}
+.mg .mn{display:flex;align-items:center}
+.dgal{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+.dcard{border-radius:16px;overflow:hidden;border:1px solid var(--bd);background:var(--card);box-shadow:var(--shadow)}
+.dart{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:linear-gradient(135deg,var(--row),var(--bd))}
+.dart.none{display:block}
+.dinfo{padding:8px 10px}.dinfo b{display:block;font-size:.95rem}.dinfo span{font-size:.78rem;color:var(--mu)}
+.imgt td{vertical-align:middle}
+
+.bstage{position:relative;width:100%;max-width:440px;margin:4px auto 14px}
+.bub{position:absolute;aspect-ratio:1;border-radius:50%;overflow:hidden;border:3px solid var(--bc);background:color-mix(in srgb,var(--bc) 30%,#1b1524);box-shadow:0 8px 20px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center;animation:bin .5s ease-out var(--ed) both,bfl var(--ft) ease-in-out var(--fd) infinite}
+.bub img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bub::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 55%,rgba(0,0,0,.15),rgba(0,0,0,.45))}
+.bub span{position:relative;z-index:1;color:#fff;font-weight:800;font-size:clamp(.75rem,3.2vw,1.25rem);text-shadow:0 1px 4px rgba(0,0,0,.8)}
+@keyframes bfl{0%,100%{translate:0 0}50%{translate:var(--fx) var(--fy)}}
+@keyframes bin{from{opacity:0;scale:.6}to{opacity:1;scale:1}}
+@media (prefers-reduced-motion:reduce){.bub{animation:none}}
+.blist{display:grid;gap:7px}
+.bl{display:grid;grid-template-columns:1fr auto;gap:3px 10px;align-items:center}
+.bl .bn{display:flex;align-items:center;gap:8px;font-weight:600;font-size:.92rem;min-width:0}
+.bl .bv{font-weight:800;font-size:.9rem}
+.bl .bb{grid-column:1/-1;height:5px;border-radius:999px;background:var(--row);overflow:hidden;margin-left:30px}.bl .bb i{display:block;height:100%;border-radius:999px}
+.bico{width:22px!important;height:22px!important;border-radius:6px!important;margin:0!important;flex:none}
+.bico.oth{display:inline-block;background:var(--so)}
+
+.bwrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:14px 18px;align-items:center;container-type:inline-size}
+.bwrap .bstage{margin:0;max-width:none}
+@media(max-width:520px){.bwrap{grid-template-columns:1fr}}
+.bub,.bl{cursor:help}.bub:hover{z-index:2;filter:brightness(1.08);box-shadow:0 10px 26px rgba(0,0,0,.35)}
+.bl:hover .bn{color:var(--ac)}
+#tip{background:#1f1630!important;color:#f3ecfb!important;border:1px solid rgba(255,255,255,.14)!important;border-radius:14px!important;font-size:.88rem!important}
+
+.hgrid{align-items:stretch}.hgrid>.card{margin:0}.hgrid .span2{grid-column:1/-1}
+.span2 .bwrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:52px}
+.span2 .bstage{max-width:520px;margin:0 auto}
+@media(max-width:860px){.span2 .bwrap{grid-template-columns:1fr;column-gap:0}}
+
+.bub::after{display:none}
+
+.tc{gap:6px!important;padding:4px 0}
+.ttile{position:relative;display:inline-block;width:78px;height:58px;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,var(--row),var(--bd));box-shadow:0 3px 8px rgba(0,0,0,.18);cursor:help}
+.ttile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.ttile em{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:3px;font-style:normal;font-size:.66rem;font-weight:700;line-height:1.1;color:var(--tx)}
+.ttile:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,0,0,.25)}
+main{padding-bottom:0!important}
+.thx{margin:24px 0 0!important;padding:14px 12px 12px!important}
+.thx .staffl{margin:6px 0 0!important}
+
+#psearch{flex:0 1 320px!important;margin-left:auto}
+
 </style></head><body>
 <header class="top"><div class="topin"><button type="button" class="brand" data-tab="home" aria-label="Lega Pauper Firenze, torna alla bacheca"><i aria-hidden="true"></i><span>LPF</span></button><nav role="tablist" id="nav" aria-label="Sezioni"></nav><div class="tact"><button type="button" class="ic" id="thm"></button><button type="button" class="ic" id="stf"></button></div></div></header>
 <main>
@@ -294,7 +345,7 @@ const AI_MODEL=String(CFG.aiModel||"claude-sonnet-5-5");
 const ONLINE=!!(SUPABASE_URL&&SUPABASE_KEY);
 let S={seasons:[{id:"s1",name:"Stagione 1",closed:false,recs:[]}],cur:"s1"},tab="home",modalSave=null;
 const IS_RO=false,HAVE=true,CURK="mtg-lega-cur",STK="lpf-staff",EDK="lpf-edit";
-let UPD="",EVT=[],TEAMS=[];
+let UPD="",EVT=[],TEAMS=[],IMG={};
 const SNAP={"v": 1, "upd": "2026-11-24T12:00:00.000Z", "S": {"seasons": [{"id": "s1", "name": "3° Lega 2026/27", "closed": false, "recs": [], "pd": [{"g": 1, "t": "M", "n": "Simone Bini", "d": "Tron Altar"}, {"g": 1, "t": "M", "n": "Roberto Becucci", "d": "R Madness"}, {"g": 1, "t": "M", "n": "Federico Noviello", "d": "WW Convoke"}, {"g": 1, "t": "M", "n": "Matteo Skelly", "d": "R Rally"}, {"g": 1, "t": "M", "n": "Filippo Massarelli", "d": "U terror"}, {"g": 1, "t": "M", "n": "Samuele Bacciarelli", "d": "Tron Fog"}, {"g": 1, "t": "M", "n": "Giovanni Bertelli", "d": "WR Moxite"}, {"g": 1, "t": "M", "n": "Matteo Buresta", "d": "U terror"}, {"g": 1, "t": "M", "n": "Alessandro Pela", "d": "U Fate"}, {"g": 1, "t": "M", "n": "Francesco Baldi", "d": "UBR Affinity"}, {"g": 1, "t": "M", "n": "Sebastiano Fornasari", "d": "U terror"}, {"g": 1, "t": "M", "n": "Riccardo Teri", "d": "U terror"}, {"g": 1, "t": "M", "n": "Andrea Fagotti", "d": "BR Madness"}, {"g": 1, "t": "M", "n": "Tommaso Corsani", "d": "WRG Gates"}, {"g": 1, "t": "M", "n": "Fatlum Bajraku", "d": "WR Moxite"}, {"g": 1, "t": "M", "n": "Alessandro Fabbri", "d": "WU Famigli"}, {"g": 1, "t": "M", "n": "Marco Battaglia", "d": "R Rally"}, {"g": 1, "t": "M", "n": "Mattia Schiavone", "d": "RG Storm"}, {"g": 1, "t": "M", "n": "Filippo Coleschi", "d": "Tron Monster"}, {"g": 1, "t": "M", "n": "Fulvio Cavaliere", "d": "WG Boogle"}, {"g": 1, "t": "M", "n": "Tommy Neve", "d": "WG Boogle"}, {"g": 1, "t": "M", "n": "Giovanni Bettarini", "d": "U Fate"}], "pr": [{"g": 1, "t": "M", "r": 1, "a": "Matteo Buresta", "b": "Simone Bini", "ga": 1, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 1, "a": "Alessandro Pela", "b": "Giovanni Bertelli", "ga": 1, "gb": 1, "gd": 0}, {"g": 1, "t": "M", "r": 1, "a": "Marco Battaglia", "b": "Filippo Coleschi", "ga": 2, "gb": 0, "gd": 0}, {"g": 1, "t": "M", "r": 1, "a": "Matteo Skelly", "b": "Tommy Neve", "ga": 2, "gb": 1, "gd": 0}, {"g": 1, "t": "M", "r": 1, "a": "Mattia Schiavone", "b": "Filippo Massarelli", "ga": 1, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 1, "a": "Roberto Becucci", "b": "Francesco Baldi", "ga": 2, "gb": 1, "gd": 0}, {"g": 1, "t": "M", "r": 1, "a": "Riccardo Teri", "b": "Alessandro Fabbri", "ga": 2, "gb": 0, "gd": 0}, {"g": 1, "t": "M", "r": 1, "a": "Samuele Bacciarelli", "b": "Sebastiano Fornasari", "ga": 1, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 1, "a": "Andrea Fagotti", "b": "Fatlum Bajraku", "ga": 2, "gb": 0, "gd": 0}, {"g": 1, "t": "M", "r": 1, "a": "Fulvio Cavaliere", "b": "Federico Noviello", "ga": 1, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 1, "a": "Giovanni Bettarini", "b": "Tommaso Corsani", "ga": 0, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 2, "a": "Tommaso Corsani", "b": "Simone Bini", "ga": 0, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 2, "a": "Filippo Massarelli", "b": "Roberto Becucci", "ga": 1, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 2, "a": "Andrea Fagotti", "b": "Riccardo Teri", "ga": 1, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 2, "a": "Matteo Skelly", "b": "Sebastiano Fornasari", "ga": 2, "gb": 1, "gd": 0}, {"g": 1, "t": "M", "r": 2, "a": "Marco Battaglia", "b": "Federico Noviello", "ga": 0, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 2, "a": "Alessandro Pela", "b": "Fulvio Cavaliere", "ga": 2, "gb": 0, "gd": 0}, {"g": 1, "t": "M", "r": 2, "a": "Giovanni Bertelli", "b": "Giovanni Bettarini", "ga": 2, "gb": 1, "gd": 0}, {"g": 1, "t": "M", "r": 2, "a": "Filippo Coleschi", "b": "Matteo Buresta", "ga": 1, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 2, "a": "Mattia Schiavone", "b": "Alessandro Fabbri", "ga": 1, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 2, "a": "Tommy Neve", "b": "Francesco Baldi", "ga": 0, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 2, "a": "Fatlum Bajraku", "b": "Samuele Bacciarelli", "ga": 1, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 3, "a": "Roberto Becucci", "b": "Simone Bini", "ga": 1, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 3, "a": "Federico Noviello", "b": "Matteo Skelly", "ga": 2, "gb": 0, "gd": 0}, {"g": 1, "t": "M", "r": 3, "a": "Riccardo Teri", "b": "Giovanni Bertelli", "ga": 1, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 3, "a": "Alessandro Pela", "b": "Francesco Baldi", "ga": 1, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 3, "a": "Tommaso Corsani", "b": "Matteo Buresta", "ga": 1, "gb": 1, "gd": 0}, {"g": 1, "t": "M", "r": 3, "a": "Alessandro Fabbri", "b": "Filippo Massarelli", "ga": 0, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 3, "a": "Sebastiano Fornasari", "b": "Andrea Fagotti", "ga": 1, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 3, "a": "Samuele Bacciarelli", "b": "Marco Battaglia", "ga": 2, "gb": 0, "gd": 0}, {"g": 1, "t": "M", "r": 3, "a": "Mattia Schiavone", "b": "Filippo Coleschi", "ga": 2, "gb": 0, "gd": 0}, {"g": 1, "t": "M", "r": 3, "a": "Fatlum Bajraku", "b": null, "ga": 0, "gb": 0, "gd": 0}, {"g": 1, "t": "M", "r": 4, "a": "Simone Bini", "b": "Federico Noviello", "ga": 2, "gb": 1, "gd": 0}, {"g": 1, "t": "M", "r": 4, "a": "Giovanni Bertelli", "b": "Roberto Becucci", "ga": 1, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 4, "a": "Francesco Baldi", "b": "Samuele Bacciarelli", "ga": 0, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 4, "a": "Andrea Fagotti", "b": "Filippo Massarelli", "ga": 0, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 4, "a": "Matteo Skelly", "b": "Riccardo Teri", "ga": 2, "gb": 0, "gd": 0}, {"g": 1, "t": "M", "r": 4, "a": "Tommaso Corsani", "b": "Alessandro Pela", "ga": 0, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 4, "a": "Matteo Buresta", "b": "Marco Battaglia", "ga": 2, "gb": 0, "gd": 0}, {"g": 1, "t": "M", "r": 4, "a": "Mattia Schiavone", "b": "Sebastiano Fornasari", "ga": 0, "gb": 2, "gd": 0}, {"g": 1, "t": "M", "r": 4, "a": "Fatlum Bajraku", "b": "Alessandro Fabbri", "ga": 1, "gb": 1, "gd": 0}, {"g": 1, "t": "M", "r": 4, "a": "Filippo Coleschi", "b": null, "ga": 0, "gb": 0, "gd": 0}]}], "cur": "s1"}, "EVT": [{"d": "2026-11-18", "h": "21:00", "id": "g1m", "n": "Firenze Comics & Games, Piazza Dalmazia 2", "t": "1ª giornata · Mercoledì"}, {"d": "2026-11-29", "h": "15:00", "id": "g1d", "n": "Firenze Comics & Games, Piazza Dalmazia 2", "t": "1ª giornata · Domenica"}, {"d": "2026-11-25", "h": "21:00", "id": "g2m", "n": "Firenze Comics & Games, Piazza Dalmazia 2", "t": "2ª giornata · Mercoledì"}, {"d": "2026-12-13", "h": "15:00", "id": "g2d", "n": "Firenze Comics & Games, Piazza Dalmazia 2", "t": "2ª giornata · Domenica"}, {"d": "2026-12-02", "h": "21:00", "id": "g3m", "n": "Firenze Comics & Games, Piazza Dalmazia 2", "t": "3ª giornata · Mercoledì"}, {"d": "2026-12-27", "h": "15:00", "id": "g3d", "n": "Firenze Comics & Games, Piazza Dalmazia 2", "t": "3ª giornata · Domenica"}, {"d": "2026-12-09", "h": "21:00", "id": "g4m", "n": "Firenze Comics & Games, Piazza Dalmazia 2", "t": "4ª giornata · Mercoledì"}, {"d": "2027-01-10", "h": "15:00", "id": "g4d", "n": "Firenze Comics & Games, Piazza Dalmazia 2", "t": "4ª giornata · Domenica"}, {"d": "2027-01-13", "h": "21:00", "id": "g5m", "n": "Firenze Comics & Games, Piazza Dalmazia 2", "t": "5ª giornata · Mercoledì"}, {"d": "2027-01-17", "h": "15:00", "id": "g5d", "n": "Firenze Comics & Games, Piazza Dalmazia 2", "t": "5ª giornata · Domenica"}, {"d": "2027-01-27", "h": "21:00", "id": "g6m", "n": "Firenze Comics & Games, Piazza Dalmazia 2", "t": "6ª giornata · Mercoledì"}, {"d": "2027-01-24", "h": "15:00", "id": "g6d", "n": "Firenze Comics & Games, Piazza Dalmazia 2", "t": "6ª giornata · Domenica"}, {"d": "2027-02-03", "h": "21:00", "id": "g7m", "n": "Firenze Comics & Games, Piazza Dalmazia 2", "t": "7ª giornata · Mercoledì"}, {"d": "2027-02-14", "h": "15:00", "id": "g7d", "n": "Firenze Comics & Games, Piazza Dalmazia 2", "t": "7ª giornata · Domenica"}, {"d": "2027-02-10", "h": "21:00", "id": "g8m", "n": "Firenze Comics & Games, Piazza Dalmazia 2", "t": "8ª giornata · Mercoledì"}, {"d": "2027-02-21", "h": "15:00", "id": "g8d", "n": "Firenze Comics & Games, Piazza Dalmazia 2", "t": "8ª giornata · Domenica"}, {"d": "2027-02-28", "h": "", "id": "top8", "n": "Firenze Comics & Games, Piazza Dalmazia 2", "t": "TOP 8 finale"}], "TEAMS": []};
 let LOCALHAD=false,syncState="ok",syncErr="",dbEmpty=null,noData=false,DB=null,pubBusy=false,savedAt="";
 let SB=null,BASE_TS=null,STAFF_EMAIL="";
@@ -302,22 +353,22 @@ let canW=false;if(!ONLINE){try{canW=localStorage.getItem(STK)==="1"}catch(e){}}
 const lsGet=k=>{try{return localStorage.getItem(k)}catch(e){return null}};
 function applyData(d){
   if(!d||!d.S||!Array.isArray(d.S.seasons)||!d.S.seasons.length)return false;
-  S=JSON.parse(JSON.stringify(d.S));EVT=Array.isArray(d.EVT)?JSON.parse(JSON.stringify(d.EVT)):[];TEAMS=Array.isArray(d.TEAMS)?JSON.parse(JSON.stringify(d.TEAMS)):[];UPD=d.upd||"";
+  S=JSON.parse(JSON.stringify(d.S));EVT=Array.isArray(d.EVT)?JSON.parse(JSON.stringify(d.EVT)):[];TEAMS=Array.isArray(d.TEAMS)?JSON.parse(JSON.stringify(d.TEAMS)):[];IMG=d.IMG&&typeof d.IMG==="object"?JSON.parse(JSON.stringify(d.IMG)):{};UPD=d.upd||"";
   if(!S.seasons.some(s=>s.id===S.cur)){const o=S.seasons.filter(s=>!s.closed);S.cur=(o[o.length-1]||S.seasons[S.seasons.length-1]).id}
   return true;
 }
-const bundle=()=>({v:1,upd:ONLINE?new Date().toISOString():(lsGet(EDK)||new Date().toISOString()),S:{seasons:S.seasons,cur:S.cur},EVT,TEAMS});
+const bundle=()=>({v:1,upd:ONLINE?new Date().toISOString():(lsGet(EDK)||new Date().toISOString()),S:{seasons:S.seasons,cur:S.cur},EVT,TEAMS,IMG});
 applyData(SNAP);
 const localEdit=()=>lsGet(EDK)||"";
 const isDirty=()=>ONLINE?(canW&&(syncState==="saving"||syncState==="err"||syncState==="conflict")):(canW&&LOCALHAD&&!!localEdit()&&(!UPD||UPD<localEdit()));
 function loadLocal(){
   try{const r=localStorage.getItem(KEY);if(r){const x=JSON.parse(r);if(x&&Array.isArray(x.seasons)&&x.seasons.length){S=x;LOCALHAD=true}}
     const e=localStorage.getItem("mtg-lega-evt");if(e)EVT=JSON.parse(e);
-    const t=localStorage.getItem("mtg-lega-team");if(t)TEAMS=JSON.parse(t);
+    const t=localStorage.getItem("mtg-lega-team");if(t)TEAMS=JSON.parse(t);const im=localStorage.getItem("lpf-img");if(im)IMG=JSON.parse(im);
     const c=localStorage.getItem(CURK);if(c&&S.seasons.some(s=>s.id===c))S.cur=c}catch(e){}
 }
 if(!ONLINE&&canW&&localEdit())loadLocal();
-const saveLocal=()=>{if(!canW)return;try{localStorage.setItem(KEY,JSON.stringify(S));localStorage.setItem(CURK,S.cur);localStorage.setItem("mtg-lega-evt",JSON.stringify(EVT));localStorage.setItem("mtg-lega-team",JSON.stringify(TEAMS))}catch(e){}};
+const saveLocal=()=>{if(!canW)return;try{localStorage.setItem(KEY,JSON.stringify(S));localStorage.setItem(CURK,S.cur);localStorage.setItem("mtg-lega-evt",JSON.stringify(EVT));localStorage.setItem("mtg-lega-team",JSON.stringify(TEAMS));localStorage.setItem("lpf-img",JSON.stringify(IMG))}catch(e){}};
 let onT=null;
 function markEdit(){if(!canW)return;
   if(ONLINE){syncState="saving";clearTimeout(onT);onT=setTimeout(pushOnline,900);return}
@@ -749,7 +800,7 @@ function renderBar(){
 }
 
 const CL=["M","D","G","top"],CLL={M:"Mercoledì",D:"Domenica",G:"Generale",top:"Top 8"};let csub="G";
-const PL=["pl","cmp","team","hof"],PLL={pl:"Giocatori LPF",cmp:"Confronto",team:"Team LPF <i>sperimentale</i>",hof:"Hall of Fame LPF"};let psub="pl";
+const PL=["pl","hof"],PLL={pl:"Giocatori LPF",hof:"Hall of Fame LPF"};let psub="pl";
 TABT.team="Classifica dei team della lega. Sezione sperimentale, ancora in preparazione.";
 function saveTeam(){
   markEdit();saveLocal();if($("#bar"))renderBar();
@@ -1357,10 +1408,10 @@ function cVariety(X){
   o+=subh("Concentrazione","Quota delle copie coperta dai primi mazzi: più la curva sale in fretta, più pochi mazzi dominano.")
     +(lim>=2?lineSvg(cv.map((_,i)=>String(i+1)),[{name:"Quota cumulata",col:"var(--s2)",vals:cv}],{ymax:1,aria:"Quota cumulata dei mazzi più giocati",tip:(s,i,v)=>`${i?"I primi "+(i+1)+" mazzi":"Il mazzo più giocato"}${A.list[i]?" ("+A.list.slice(0,i+1).map(d=>d.n).join(", ")+")":""}\ncoprono il ${pct(v)} delle copie`}):`<p class="empty">Servono almeno due mazzi diversi.</p>`);
   return `<div class="card"><h2${tp("Quanto è vario o concentrato il metagame, in ogni punto e in totale.")}>Varietà e concentrazione</h2>${o}
-  <div class="legend sm"><h3>Come leggere questi grafici</h3>
-  <p><b>Varietà nel tempo:</b> in orizzontale le giornate (o le tappe), in verticale il “numero effettivo di mazzi”, cioè quanti mazzi diversi ci sarebbero se tutti fossero giocati nella stessa misura. Se 20 giocatori portano 20 mazzi diversi vale 20; se tutti portano lo stesso mazzo vale 1. Una linea che sale significa un metagame che si apre, una che scende un metagame che si restringe su pochi mazzi.</p>
+  <details class="legend sm rd"><summary><b>${pts.length>=2?"Come leggere questi grafici":"Come leggere questo grafico"}</b></summary>
+  <p${pts.length>=2?"":" hidden"}><b>Varietà nel tempo:</b> in orizzontale le giornate (o le tappe), in verticale il “numero effettivo di mazzi”, cioè quanti mazzi diversi ci sarebbero se tutti fossero giocati nella stessa misura. Se 20 giocatori portano 20 mazzi diversi vale 20; se tutti portano lo stesso mazzo vale 1. Una linea che sale significa un metagame che si apre, una che scende un metagame che si restringe su pochi mazzi.</p>
   <p><b>Concentrazione:</b> in orizzontale i mazzi, dal più giocato in poi (1 = il più giocato, 2 = i primi due, e così via); in verticale la quota delle copie coperta da quei mazzi. Se la curva sale in fretta, per esempio i primi tre mazzi coprono già metà delle copie, pochi mazzi dominano; se sale piano, il metagame è equilibrato.</p>
-  <p><b>Come usarli:</b> ferma il cursore su un punto per leggere i valori (giornata, numero di mazzi, quota delle copie). Insieme dicono se vale la pena portare un mazzo di nicchia (metagame vario) oppure se conviene prepararsi ai pochi mazzi dominanti (metagame concentrato).</p></div></div>`;
+  <p><b>${pts.length>=2?"Come usarli":"Come usarlo"}:</b> ferma il cursore su un punto per leggere i valori (giornata, numero di mazzi, quota delle copie). Insieme dicono se vale la pena portare un mazzo di nicchia (metagame vario) oppure se conviene prepararsi ai pochi mazzi dominanti (metagame concentrato).</p></details></div>`;
 }
 
 function cRecords(X){
@@ -1411,7 +1462,7 @@ const ANL={
 };
 let legOpen=false;
 document.addEventListener("toggle",e=>{if(e.target.matches&&e.target.matches("details.legend"))legOpen=e.target.open},true);
-const anLegend=k=>`<details class="legend sm"${legOpen?" open":""}><summary${tp("Spiegazione di come usare questa pagina e a cosa serve ogni analisi. Clicca per chiuderla o riaprirla.")}><b>Legenda: come si usano le analisi</b></summary>
+const anLegend=k=>"";const anLegend0=k=>`<details class="legend sm"${legOpen?" open":""}><summary${tp("Spiegazione di come usare questa pagina e a cosa serve ogni analisi. Clicca per chiuderla o riaprirla.")}><b>Legenda: come si usano le analisi</b></summary>
   <p><b>Aprire e chiudere:</b> all’apertura della pagina tutte le sezioni sono aperte. Clicca sul titolo di una sezione (quello con la freccia) per nasconderla e clicca di nuovo per riaprirla. Le sezioni che nascondi restano nascoste anche se cambi filtro o scheda.</p>
   <p><b>Dettagli:</b> fermando il cursore su un titolo, un numero, un nome o un cerchio dei grafici compare una finestra che lo spiega o mostra i dati. I filtri in alto valgono per tutte le analisi.</p>
   ${ANL[k].map(([t,d])=>`<p><b>${t}:</b> ${d}</p>`).join("")}</details>`;
@@ -2031,7 +2082,7 @@ function wTierScore(X){
     L.sort((a,b)=>b.sc-a.sc||a.n.localeCompare(b.n));
     const rows=TIERS2.map(([nm,rg,min,col],i)=>{
       const hi=i?TIERS2[i-1][2]:Infinity,it=L.filter(o=>o.sc>=min&&o.sc<hi);
-      return `<div class="trow"><span class="tl" style="background:${col};color:${i>=1&&i<=3?"#fff":"#1d1a14"}"${tp(`${nm}: mazzi con punteggio ${rg}.`)}>${nm}<small>${rg}</small></span><span class="tc">${it.length?it.map(o=>`<span class="chip"${tp(`${o.n}: punteggio ${o.sc.toFixed(0)} su 100.\nPresenza: ${o.p.toFixed(1).replace(".",",")}% dei mazzi registrati (${o.pn.toFixed(0)} su 100 rispetto al mazzo più giocato).\nRisultati: ${o.g?pct(o.w/o.g)+" ("+o.w+" vittorie su "+pl(o.g,"partita","partite")+")":"nessuna partita"}, winrate corretto ${(o.wr*100).toFixed(1).replace(".",",")}% (${o.rn.toFixed(0)} su 100).`)}>${esc(o.n)} <small>${o.sc.toFixed(0)}</small></span>`).join(""):`<span class="sub">–</span>`}</span></div>`}).join("");
+      return `<div class="trow"><span class="tl" style="background:${col};color:${i>=1&&i<=3?"#fff":"#1d1a14"}"${tp(`${nm}: mazzi con punteggio ${rg}.`)}>${nm}<small>${rg}</small></span><span class="tc">${it.length?it.map(o=>tierTile(o.n,o.sc.toFixed(0))).join(""):`<span class="sub">–</span>`}</span></div>`}).join("");
     return `<div class="tier"><h4 class="subh"${tp(tip)}>${titolo} <small>(${pl(tot,"mazzo registrato","mazzi registrati")})</small></h4>${rows}</div>`;
   };
   const tot=r=>({w:r.w,n:r.w+r.l+r.d}),dd=t=>r=>{const x=r.day&&r.day[t]||{w:0,l:0,d:0};return {w:x.w,n:x.w+x.l+x.d}};
@@ -2132,14 +2183,14 @@ function wColors(V){
   ${subh("Per numero di colori","Mazzi monocolore contro bicolore e oltre.")}<div class="tw"><table class="rank">${hd.replace("{0}","Tipo")}<tbody>${rows2}</tbody></table></div></div>`;
 }
 
-const eloLegend=()=>`<div class="legend sm"${tp("Spiegazione breve di come viene calcolato l’Elo.")}><h3>Legenda: come si calcola l’Elo</h3>
+const eloLegend=()=>`<details class="legend sm rd"><summary${tp("Spiegazione breve di come viene calcolato l’Elo. Clicca per aprirla o chiuderla.")}><b>Legenda: come si calcola l’Elo</b></summary>
   <p><b>Nota:</b> L’Elo è un dato scherzoso, impostato apposta per essere molto variabile e facile da recuperare. Non dice se un giocatore è forte o scarso: indica solo il suo andamento in lega rispetto agli avversari che ha incontrato.</p>
   <p><b>Partenza:</b> tutti da ${ELO0}. L’<b>Elo generale</b> si conserva tra le stagioni; l’<b>Elo stagione</b> riparte da ${ELO0} a ogni nuova stagione e conta solo le sue partite.</p>
   <p><b>Ogni match:</b> si stima la probabilità di vittoria dalla differenza di Elo (a parità 50%, con 200 punti in più circa 76%). Vittoria = 1, pareggio = ½, sconfitta = 0 (contano i match, non i game).</p>
   <p><b>Variazione</b> = ${ELOK} × (risultato − probabilità). Tra due giocatori pari: vincitore +${ELOK/2}, sconfitto −${ELOK/2}, pareggio 0. Battere uno con 200 punti in più dà circa +${Math.round(ELOK*.76)}, perdere contro di lui circa −${Math.round(ELOK*.24)}. I punti guadagnati da uno sono persi dall’altro.</p>
   <p><b>Il bye</b> non conta. I match dello stesso turno si calcolano insieme, dall’Elo di inizio turno.</p>
   <p><b>Nome in <span class="prov">celeste</span>:</b> meno di ${ELOMIN} partite, quindi Elo provvisorio, non affidabile e da non considerare valido.</p>
-  <p><b>Frecce:</b> <span class="ar up">▲</span> salito, <span class="ar dn">▼</span> sceso, – invariato, nell’ultima tappa giocata (sotto, di quanti punti). Con poche partite il valore è poco affidabile.</p></div>`;
+  <p><b>Frecce:</b> <span class="ar up">▲</span> salito, <span class="ar dn">▼</span> sceso, – invariato, nell’ultima tappa giocata (sotto, di quanti punti). Con poche partite il valore è poco affidabile.</p></details>`;
 const prov=q=>!q.e||q.e.pl<ELOMIN;
 let rawg="";
 function rawTappa(se,g,t){
@@ -2235,8 +2286,7 @@ function vPlayers(){
     +`<td style="text-align:left;white-space:normal;min-width:260px"${tp(q.ds.length?`Tutti i mazzi portati da ${q.name} in questa stagione, dal più frequente, con il numero di volte.`:"Nessun mazzo registrato.")}>${chips}</td></tr>`+pDetail(q,se,pdm,fsn)}).join("");
   const sel=`<div class="row ctl"><label${tp("Cambia l’ordine dei giocatori nella tabella. Di base sono in ordine di Elo.")}>Ordina per<select id="psort">${[["elo","Elo"],...(firstSeason()?[]:[["elos","Elo stagione"]]),["name","Nome"],["tappe","Tappe giocate"],["var","Varietà di mazzi"],["fed","Fedeltà al mazzo"]].map(([v,l])=>`<option value="${v}"${psort===v?" selected":""}>${l}</option>`).join("")}</select></label><span class="sub" style="margin:0 0 0 auto"${tp("Cliccando sulla riga di un giocatore si apre la sua scheda con gli ultimi match, le variazioni di Elo e i mazzi portati.")}>Click su giocatore per più dettagli</span></div>`;
   return `<div class="card"><h2${tp("Tutti i giocatori della lega: forza (Elo) e mazzi che portano, per varietà e frequenza.")}>Giocatori LPF</h2>
-  <p class="sub" style="font-size:.7rem;line-height:1.35;margin:0"><b>Elo generale ed Elo stagione:</b> in questa prima stagione c’è un solo Elo, perché i due coincidono. Dalle prossime ci saranno due valori: l’<b>Elo generale</b>, che si conserva di stagione in stagione, e l’<b>Elo stagione</b>, che riparte da 1500 a ogni stagione e conta solo le sue partite.</p>
-  <p class="sub" style="font-size:.7rem;line-height:1.35;margin:0 0 10px"><b>Nota sull’Elo:</b> è un dato scherzoso, impostato apposta per essere molto variabile e facile da recuperare. Non dice se un giocatore è forte o scarso: indica solo il suo andamento in lega rispetto agli avversari incontrati.</p>
+
   <div class="tiles"><div class="tile"${tp("Giocatori che compaiono in questa stagione.")}><b>${L.length}</b><span>Giocatori</span></div><div class="tile"${tp(`Numero di mazzi singoli diversi portati in questa stagione da tutti i giocatori: ogni nome conta una volta sola, e le varianti sono mazzi diversi (per esempio BR Madness e R Madness, oppure Tron Altar e Tron Fog).`)}><b>${nDeckAll}</b><span>Mazzi diversi portati</span></div></div>
   ${sel}<div class="tw"><table class="rank"><thead><tr><th${tp(HT.pos)}>#</th><th${tp(HT.name)}>Giocatore</th>${firstSeason()?`<th${tp(ELOT+" La freccia indica l’andamento nell’ultima tappa giocata.")}>Elo</th>`:`<th${tp(ELOG+" "+ELOT+" La freccia indica l’andamento nell’ultima tappa giocata.")}>Elo generale</th><th${tp(ELOS+" "+ELOT)}>Elo stagione</th>`}<th${tp("Partite giocate nei pairings, bye esclusi.")}>Partite</th><th${tp("Tappe di questa stagione con il mazzo registrato.")}>Tappe</th><th${tp("Varietà: quanti mazzi diversi ha portato.")}>Varietà</th><th${tp("Il mazzo più giocato e la percentuale di tappe in cui lo ha portato.")}>Mazzo preferito</th><th${tp("Tutti i mazzi portati, con quante volte.")}>Mazzi portati</th></tr></thead><tbody>${rows}</tbody></table></div>${eloLegend()}${pMatrix(se,L)}</div>`;
 }
@@ -2292,7 +2342,7 @@ function pMatrix(se,L){
     const c=Mx[a.k][b.k];if(!c)return `<td${tp(`${a.name} contro ${b.name}: nessuna partita.`)}>–</td>`;
     const n=c.w+c.l+c.d,wr=(c.w+c.d/2)/n,hue=wr>=.5?"var(--ok)":"var(--er)",st=Math.min(48,Math.abs(wr-.5)*2*48);
     return `<td style="background:color-mix(in srgb,${hue} ${st.toFixed(0)}%,transparent)"${tp(`${a.name} contro ${b.name}: ${c.w} vittorie, ${c.l} sconfitte, ${c.d} pareggi su ${pl(n,"partita","partite")} = ${pct(wr)}${c.d?" (ogni pareggio vale mezza vittoria)":""}.${n<3?" Poche partite: dato poco significativo.":""}`)}>${Math.round(wr*100)}%<small>${n}</small></td>`}).join("")}</tr>`).join("");
-  return `<h3 class="subh"${tp("Winrate di ogni giocatore contro ciascun altro, calcolato sui match dei pairings.")}>Winrate tra giocatori</h3><p class="sub">Winrate del giocatore in riga contro quello in colonna; il numero piccolo sono i match giocati. Verde: vince più del 50%, rosso: meno. Ogni pareggio vale mezza vittoria. Con pochi scontri diretti il dato è poco significativo. Se la tabella è larga scorri; clicca un nome (riga o colonna) per vedere solo quello, clicca ancora (o “Tutto”) per tornare alla tabella intera.</p><div class="tw mxw"><table class="hm mx"><thead><tr><th data-act="mxx"${tp("Clicca per rimostrare tutte le righe e le colonne.")}>Tutto</th>${heads}</tr></thead><tbody>${rows}</tbody></table></div>`;
+  return `<h3 class="subh"${tp("Winrate di ogni giocatore contro ciascun altro, calcolato sui match dei pairings.")}>Winrate tra giocatori</h3><div class="tw mxw"><table class="hm mx"><thead><tr><th data-act="mxx"${tp("Clicca per rimostrare tutte le righe e le colonne.")}>Tutto</th>${heads}</tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 function vInc(){
   const se=season(),hasAny=pdOf(se).length||prOf(se).length;
@@ -2303,7 +2353,6 @@ function vInc(){
    +wMatrix(V.D.filter(d=>d.pl>0).sort((a,b)=>b.pl-a.pl),V.RD.Mx,"Matchup tra mazzi",
      "Come va ogni mazzo contro ciascun altro: percentuale di match vinti dal mazzo della riga contro quello della colonna.",
      "Winrate del mazzo in riga contro il mazzo in colonna; il numero piccolo sono le partite giocate. Verde: vince più del 50%, rosso: meno. Ogni pareggio vale mezza vittoria, così due celle opposte sommano sempre 100%. Sono mostrati tutti i mazzi con partite giocate, in ordine di partite; se la tabella è larga scorri. Clicca il nome di una riga o di una colonna per vedere solo quella, clicca ancora (o “Tutto”) per tornare alla tabella intera.",1)
-   +wBest(V)
    +wTime(V)+wDays(V)+wScore(V)+wColors(V)+cDetStatus(se);
 }
 
@@ -2489,7 +2538,7 @@ function vHome(){
   /* mazzi più giocati */
   const dm={};pd.forEach(x=>{const k=dk(x.d),o=dm[k]||(dm[k]={n:canon(x.d),c:0});o.c++});
   const dl=Object.values(dm).sort((a,b)=>b.c-a.c||a.n.localeCompare(b.n)),dtot=pd.length,dmax=dl.length?dl[0].c:1;
-  const mgh=dl.length?`<div class="mg">${dl.slice(0,8).map(x=>`<span class="mn"${tp(`${x.n}: portato ${pl(x.c,"volta","volte")} su ${dtot} (${pct(x.c/dtot)}).`)}>${pipsOf(x.n)}${esc(x.n)}</span><span class="mv">${pct(x.c/dtot)}</span><span class="mb"><i style="width:${(x.c/dmax*100).toFixed(1)}%"></i></span>`).join("")}</div>`:`<p class="empty2">Nessun mazzo registrato.</p>`;
+  const mgh=dl.length?bubbles(dl,dtot):`<p class="empty2">Nessun mazzo registrato.</p>`;
   /* ultima tappa */
   const ids=[...tap].map(s=>{const [g,t]=s.split("|");return {g:+g,t}}).sort((a,b)=>b.g-a.g||(b.t==="D")-(a.t==="D"));
   let rec="";
@@ -2498,7 +2547,7 @@ function vHome(){
     const md={};pd.filter(y=>y.g===L.g&&y.t===L.t).forEach(y=>{const k=canon(y.d);md[k]=(md[k]||0)+1});const mtop=Object.entries(md).sort((a,b)=>b[1]-a[1])[0];
     const nx=ev.find(x=>x.d>=today);
     rec=`<div class="recap"><div class="rc"${tp("L’ultima tappa con risultati in questa stagione.")}><small>Ultima tappa</small><b>${L.g}ª giornata · ${LB[L.t]}</b><span>${rs.length} giocatori</span></div>${win.length?`<div class="rc"${tp("Chi ha fatto il risultato migliore nell’ultima tappa.")}><small>Miglior risultato</small><b>${win.map(r=>esc(pName(r.n))).join(", ")}</b><span>${win[0].v}-${win[0].s}-${win[0].p}${win.length===1&&dOf(win[0].n)?" · "+esc(dOf(win[0].n)):""}</span></div>`:""}${mtop?`<div class="rc"${tp("Il mazzo più presente nell’ultima tappa.")}><small>Mazzo più giocato</small><b>${pipsOf(mtop[0])}${esc(mtop[0])}</b><span>${pl(mtop[1],"copia","copie")}</span></div>`:""}${nx?`<div class="rc"${tp("Il prossimo appuntamento in calendario.")}><small>Prossimo evento</small><b>${esc(String(nx.t).split("·")[0].trim())}</b><span>${new Date(nx.d+"T12:00:00").toLocaleDateString("it-IT",{weekday:"short",day:"numeric",month:"short"})}${nx.h?" · "+esc(nx.h):""}</span></div>`:""}</div>`}
-  return `${kpis}${rec?`<div class="card">${rec}</div>`:""}<div class="hgrid"><div class="card"><div class="hh"><h2${tp("Gli eventi della lega: le ultime tappe giocate e le prossime.")}>📅 Eventi</h2><button class="lnk" data-tab="cal">Tutti gli eventi ›</button></div>${evh}</div><div><div class="card"><div class="hh"><h2${tp("I primi 10 della classifica generale della stagione.")}>🏆 ${esc(se.name)}</h2>${calT?ring(tap.size,calT):""}</div>${lbh}<div class="hh" style="margin:10px 0 0"><span></span><button class="lnk" data-tab="G">Classifica completa ›</button></div></div><div class="card"><div class="hh"><h2${tp("I mazzi più portati in questa stagione, in percentuale sulle presenze registrate.")}>🃏 Più giocati</h2><button class="lnk" data-tab="meta">Meta ›</button></div>${mgh}</div></div></div>`;
+  return `${kpis}${rec?`<div class="card">${rec}</div>`:""}<div class="hgrid"><div class="card"><div class="hh"><h2${tp("Gli eventi della lega: le ultime tappe giocate e le prossime.")}>📅 Eventi</h2><button class="lnk" data-tab="cal">Tutti gli eventi ›</button></div>${evh}</div><div class="card"><div class="hh"><h2${tp(`I primi 10 della classifica generale della stagione ${se.name}.`)}>🏆 Classifica generale</h2>${calT?ring(tap.size,calT):""}</div>${lbh}<div class="hh" style="margin:10px 0 0"><span></span><button class="lnk" data-tab="G">Classifica completa ›</button></div></div><div class="card span2"><div class="hh"><h2${tp("I mazzi più portati in questa stagione, in percentuale sulle presenze registrate.")}>🃏 Più giocati</h2><button class="lnk" data-tab="meta">Meta ›</button></div>${mgh}</div></div>`;
 }
 /* scheda del giocatore dalla bacheca */
 function openPlayer(k){tab="pl";psub="pl";psq="";render();const tr=[...document.querySelectorAll("tr.pdr[data-k]")].find(x=>x.dataset.k===k);if(tr){const r=tr.nextElementSibling;if(r&&r.classList.contains("pdt")&&r.hidden){r.hidden=false;tr.classList.add("op")}tr.scrollIntoView({block:"start",behavior:"smooth"})}}
@@ -2585,12 +2634,17 @@ document.addEventListener("change",e=>{
   if(e.target.id==="cmpa"){cmpA=e.target.value;if(cmpA===cmpB)cmpB="";render()}
   else if(e.target.id==="cmpb"){cmpB=e.target.value;render()}
   else if(e.target.id==="ulj"){const f=e.target.files[0];if(!f)return;f.text().then(t=>{const d=JSON.parse(t),x=d&&d.S?d:(d&&d.seasons?{S:d,EVT,TEAMS}:null);if(!x||!Array.isArray(x.S.seasons)||!x.S.seasons.length)throw 0;
-    snap("caricamento di un file dati");S=x.S;if(Array.isArray(x.EVT))EVT=x.EVT;if(Array.isArray(x.TEAMS))TEAMS=x.TEAMS;if(!S.seasons.some(s=>s.id===S.cur))S.cur=S.seasons[S.seasons.length-1].id;save();render();const l=$("#ulog");if(l)l.textContent="Dati caricati."}).catch(()=>{const l=$("#ulog");if(l)l.innerHTML='<span class="err">Il file non è un dati.json valido.</span>'})}
+    snap("caricamento di un file dati");S=x.S;if(Array.isArray(x.EVT))EVT=x.EVT;if(Array.isArray(x.TEAMS))TEAMS=x.TEAMS;if(x.IMG&&typeof x.IMG==="object")IMG=x.IMG;if(!S.seasons.some(s=>s.id===S.cur))S.cur=S.seasons[S.seasons.length-1].id;save();render();const l=$("#ulog");if(l)l.textContent="Dati caricati."}).catch(()=>{const l=$("#ulog");if(l)l.innerHTML='<span class="err">Il file non è un dati.json valido.</span>'})}
 });
 document.addEventListener("input",e=>{if(e.target.id==="psearch"){psq=e.target.value;applyPSearch()}});
 /* aggancio alle viste esistenti */
 const _vPlayers=vPlayers;
-vPlayers=function(){return _vPlayers().replace('<div class="row ctl">',`<div class="row ctl"><input type="search" id="psearch" placeholder="Cerca tra i giocatori…" aria-label="Cerca giocatore" value="${esc(psq)}"${tp("Scrivi parte del nome per filtrare la tabella.")}>`)};
+vPlayers=function(){
+  let h=_vPlayers();const m=h.match(/<span class="sub" style="margin:0 0 0 auto"[^>]*>Click su giocatore per più dettagli<\/span>/);
+  const srch=`<input type="search" id="psearch" placeholder="Cerca tra i giocatori…" aria-label="Cerca giocatore" value="${esc(psq)}"${tp("Scrivi parte del nome per filtrare la tabella.")}>`;
+  if(m){h=h.replace(m[0],srch);h=h.replace('<div class="row ctl">','<div class="row ctl">'+m[0].replace('margin:0 0 0 auto','margin:0'))}
+  else h=h.replace('<div class="row ctl">','<div class="row ctl">'+srch);
+  return h};
 const _render=render;
 render=function(){_render();if(tab==="pl"&&psq)applyPSearch();topIcons();document.title=(tab==="home"?"Bacheca":(($("#nav [aria-selected=true]")||{}).textContent||"LPF"))+" · Lega Pauper Firenze"};
 
@@ -2626,6 +2680,147 @@ const aiBox=()=>window.claude&&claude.use?"":aiKey()
   :`<div class="card"><h2${tp("Per leggere le foto serve una chiave API di Anthropic (Claude).")}>📷 Attiva la lettura da foto</h2><p class="sub">Per trascrivere in automatico le foto dei pairings e del metagame incolla qui una chiave API di Anthropic (la crei su console.anthropic.com → API Keys, con un po’ di credito). La chiave resta solo in questo browser: non finisce sul sito né nel database.</p><div class="row"><input type="password" id="aikey" placeholder="sk-ant-…" autocomplete="off" style="flex:1;min-width:220px"><button class="b" id="aikeysave">Salva chiave</button></div></div>`;
 const _vImport=vImport;
 vImport=function(){return aiBox()+_vImport()};
+
+/* ===================== Immagini dei mazzi =====================
+   Ogni mazzo mostra l’illustrazione di una sua carta simbolo, presa da Scryfall.
+   La carta si sceglie in automatico dal nome del mazzo; lo staff può cambiarla in Dati → Immagini dei mazzi. */
+const DECK_CARD=[
+ [/tron.*fog|fog/i,"Moment's Peace"],[/tron.*flicker|ephemerate.*tron/i,"Ghostly Flicker"],[/tron/i,"Expedition Map"],
+ [/terror/i,"Tolarian Terror"],[/^br .*madness|rakdos.*madness/i,"Grab the Prize"],[/madness/i,"Kessig Flamebreather"],
+ [/rally/i,"Rally at the Hornburg"],[/moxite/i,"Galvanic Blast"],[/synthesi/i,"Experimental Synthesizer"],[/affinity/i,"Thoughtcast"],
+ [/gates/i,"Prismatic Strands"],[/storm/i,"Seething Song"],[/famil|famigl/i,"Sunscape Familiar"],[/bo+g+le/i,"Slippery Bogle"],
+ [/faerie|fae\b/i,"Spellstutter Sprite"],[/elves|elfi/i,"Llanowar Elves"],[/spy/i,"Balustrade Spy"],[/dredge/i,"Exhume"],
+ [/burn/i,"Lightning Bolt"],[/kiln/i,"Kiln Fiend"],[/sliver/i,"Muscle Sliver"],[/infect/i,"Glistener Elf"],[/walls?\b/i,"Axebane Guardian"],
+ [/ponza/i,"Mwonvuli Acid-Moss"],[/wildfire/i,"Fanatical Offering"],[/heroic/i,"Ethereal Armor"],[/pinger/i,"Kessig Flamebreather"],
+ [/delver/i,"Delver of Secrets"],[/ephemerate|flicker/i,"Ephemerate"],[/glint/i,"Glint Hawk"],[/sacrific|carrion/i,"Carrion Feeder"],
+ [/food/i,"Lembas"],[/gardens?/i,"Avenging Hunter"],[/pestilence/i,"Pestilence"],[/convoke/i,"Kor Skyfisher"],[/control/i,"Counterspell"],
+ [/aggro/i,"Kor Skyfisher"],[/fate/i,"Mental Note"]
+];
+
+/* Catalogo dei mazzi del formato (archetipi del metagame Pauper di MTGGoldfish, nomi nella convenzione LPF).
+   Non entrano nelle statistiche: servono ad avere pronta l’immagine e a vedere quali mazzi esistono. */
+const CATALOG=[
+ ["UB Fate","Thorn of the Black Rose"],["Tron Flicker","Ghostly Flicker"],["BG Spy","Balustrade Spy"],["G Elfi","Priest of Titania"],
+ ["WUB Affinity","Dispatch"],["BRG Wildfire","Cleansing Wildfire"],["BG Gardens","Crypt Rats|vis"],["UB Control","Plunder the Trollshaws"],
+ ["Tron Ephemerate","Urza's Power Plant"],["UR Inside Out","Tireless Tribe"],["U Faeries","Spellstutter Sprite"],
+ ["B Sacrifice","Carrion Feeder"],["BG Food","Lembas"],["W Aggro","Kor Skyfisher"],["RG Ponza","Mwonvuli Acid-Moss"],["Dredge","Exhume"],
+ ["UR Terror","Lorien Revealed"],["Cycle Storm","Lotus Petal"],["4C Affinity","Utrom Monitor"],["WUR Ephemerate","Counterspell"],
+ ["WU Gates","Prismatic Strands"],["UB Affinity","Utrom Monitor"],["UB Terror","Snuff Out"],["R Burn","Lightning Bolt"],
+ ["WR Synthesizer","Experimental Synthesizer"],["UR Kiln Fiend","Kiln Fiend"],["Glintblade","Glint Hawk"],["RG Ramp","Annoyed Altisaur"],
+ ["UBR Faeries","Snuff Out"],["4C Synthesizer","Utrom Monitor"],["WU Faeries","Spellstutter Sprite"],["Infect","Glistener Elf"],
+ ["Walls Combo","Axebane Guardian"],["WU Affinity","Utrom Monitor"],["R Pingers","Kessig Flamebreather"],["Poison Storm","Moment's Peace"],
+ ["4C Ephemerate","Baleful Strix"],["WR Bully","Faithless Looting"],["WBR Synthesizer","Galvanic Blast"],["W Heroic","Ethereal Armor"],
+ ["Slivers","Muscle Sliver"],["BG Pestilence","Cauldron Familiar"],["WG Gates","Malevolent Rumble"],["WUR Affinity","Galvanic Blast"],
+ ["WG Ephemerate","Hare Apparent"],["URG Delver","Lightning Bolt"],["R Synthesizer","Goblin Bushwhacker"],["B Midrange","Snuff Out"],
+ ["U Delver","Delver of Secrets"],["5C Ephemerate","Ponder"],["WUB Ephemerate","Baleful Strix"],["WBR Ephemerate","Ephemerate"],
+ ["UR Faeries","Spellstutter Sprite"],["Walls Cascade","Avenging Hunter"],["U Serpentine Curve","Serpentine Curve"],["R Goblins","Goblin Matron"],
+ ["B Devotion","Gray Merchant of Asphodel"]
+];
+const CATK={};CATALOG.forEach(([n,c])=>{CATK[nk(n)]={n,c}});
+/* carte scelte dallo staff per i mazzi della lega ("Nome|set" = edizione precisa, codice Scryfall) */
+const OVR={"WR Moxite":"Melded Moxite|eoe","U Fate":"Spellstutter Sprite","BR Madness":"Kitchen Imp","R Madness":"Guttersnipe|rvr","Tron Altar":"Myr Retriever","Tron Monster":"Bramble Wurm","UBR Affinity":"Krark-Clan Shaman","WW Convoke":"Salt Road Packbeast"};
+const OVRK={};Object.keys(OVR).forEach(n=>{OVRK[nk(n)]=OVR[n]});
+const BASIC={W:"Plains",U:"Island",B:"Swamp",R:"Mountain",G:"Forest"};
+const autoCard=name=>{const n=canon(name);const ok=OVRK[nk(n)];if(ok)return ok;const ck=CATK[nk(n)];if(ck)return ck.c;for(const [re,c] of DECK_CARD)if(re.test(n))return c;const c=deckInfo(n).colors;return c.length?BASIC[c[0]]:""};
+const deckCard=name=>{const o=IMG[dk(name)];return (o&&o.c)||autoCard(name)};
+const cSplit=c=>{const [n,st]=String(c).split("|");return {n:n.trim(),st:(st||"").trim().toLowerCase()}};
+const cName=c=>cSplit(c).n;
+const sfQ=c=>{const x=cSplit(c);return x.st?"exact="+encodeURIComponent(x.n)+"&set="+encodeURIComponent(x.st):"fuzzy="+encodeURIComponent(x.n)};
+const sfUrl=c=>"https://api.scryfall.com/cards/named?"+sfQ(c)+"&format=image&version=art_crop";
+function deckImg(name){const o=IMG[dk(name)],c=deckCard(name);if(!c)return null;
+  if(o&&o.u&&(!o.c||o.c===c||o.uc===c))return {u:o.u,c,a:o.a||""};
+  return {u:sfUrl(c),c,a:""}}
+const dimg=(name,cls="dth")=>{const i=deckImg(name);return i?`<img class="${cls}" src="${esc(i.u)}" alt="" loading="lazy" referrerpolicy="no-referrer"${tp(deckTip(name,season())+(i.a?"\nIllustrazione di "+i.a+" (Scryfall)":""))} data-fast onerror="this.style.visibility='hidden'">`:`<span class="${cls} none"></span>`};
+/* risolve l’indirizzo dell’immagine e l’artista (solo staff, poi resta salvato nei dati) */
+async function resolveImg(k,c){
+  try{const r=await fetch("https://api.scryfall.com/cards/named?"+sfQ(c),{headers:{Accept:"application/json"}});if(!r.ok)return r.status===404?"nf":"err";
+    const j=await r.json(),iu=j.image_uris||(j.card_faces&&j.card_faces[0]&&j.card_faces[0].image_uris)||{};
+    if(!iu.art_crop)return "err";
+    const o=IMG[k]||(IMG[k]={});o.uc=c;o.u=iu.art_crop;o.a=j.artist||"";o.n=cSplit(c).st?(j.name||cName(c))+"|"+cSplit(c).st:(j.name||c);if(o.c&&o.c!==c)o.c=c;return "ok"}catch(e){return "err"}
+}
+const allDecks=(withCat=true)=>{const m={};S.seasons.forEach(se=>{pdOf(se).forEach(x=>{const k=dk(x.d);(m[k]=m[k]||{n:canon(x.d),c:0}).c++});(se.meta||[]).forEach(x=>{const k=dk(x.n);(m[k]=m[k]||{n:canon(x.n),c:0}).c+=x.c||1})});const L=Object.entries(m).map(([k,v])=>({k,...v})).sort((a,b)=>b.c-a.c||a.n.localeCompare(b.n));if(withCat)CATALOG.forEach(([n])=>{const k=dk(n);if(!m[k])L.push({k,n,c:0,cat:true})});return L};
+function vImgs(){
+  const L=allDecks();
+  if(!L.length)return "";
+  const nPl=L.filter(d=>!d.cat).length,nCat=L.length-nPl;const rows=L.map(d=>{const o=IMG[d.k]||{},auto=!o.c;return `<tr><td>${dimg(d.n,"dth lg")}</td><td style="text-align:left"><b>${esc(d.n)}</b><small style="display:block;color:var(--mu)">${d.cat?"da MTGGoldfish · non ancora giocato a Firenze · ":""}${auto?"carta scelta in automatico":"carta scelta dallo staff"}${o.a&&(o.uc===deckCard(d.n))?" · illustrazione di "+esc(o.a):""}</small></td><td style="text-align:left"><input type="text" class="imgc" data-k="${esc(d.k)}" data-n="${esc(d.n)}" value="${esc(deckCard(d.n))}" aria-label="Carta simbolo di ${esc(d.n)}" style="min-width:200px"></td><td>${auto?"":`<button class="g imgr" data-k="${esc(d.k)}"${tp("Torna alla carta scelta in automatico.")}>Automatico</button>`}</td></tr>`}).join("");
+  return `<div class="card"><h2${tp("Ogni mazzo mostra l’illustrazione di una sua carta simbolo, presa da Scryfall.")}>🖼️ Immagini dei mazzi</h2><p class="sub">Ogni mazzo usa l’illustrazione di una sua carta simbolo. La carta viene scelta in automatico dal nome del mazzo; per cambiarla scrivi il nome della carta in inglese (basta anche parziale, per esempio “tolarian terror”) e premi Invio. Per un’edizione precisa aggiungi | e il codice del set di Scryfall, per esempio “Guttersnipe|rvr”. Le immagini arrivano da Scryfall e si vedono sul sito pubblicato.</p><p class="sub" style="margin:0 0 8px">${nPl} mazzi giocati in lega · ${nCat} altri mazzi del formato presi da MTGGoldfish, già pronti per quando qualcuno li porterà.</p><p id="imglog" class="sub" style="margin:0 0 8px"></p><div class="row end" style="margin:0 0 8px"><button class="b" id="imgall"${tp("Cerca su Scryfall l’immagine e l’artista di ogni mazzo e li salva nei dati, così il sito le carica più in fretta.")}>Aggiorna tutte le immagini</button></div><div class="tw"><table class="imgt"><thead><tr><th>Immagine</th><th>Mazzo</th><th>Carta simbolo</th><th></th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
+}
+const _vData=vData;
+vData=function(){return _vData()+vImgs()};
+/* galleria dei mazzi nella scheda Meta */
+const _vMeta=vMeta;let catInit=false,galInit=false;
+vMeta=function(){
+  const se=season(),pd=pdOf(se),m={};pd.forEach(x=>{const k=dk(x.d),o=m[k]||(m[k]={n:canon(x.d),c:0,w:0,l:0,d:0});o.c++});
+  const E=eloCalc(se,true),pdm={};pd.forEach(x=>pdm[x.g+"|"+x.t+"|"+nk(x.n)]=dk(x.d));
+  prOf(se).forEach(p=>{if(!p.b)return;const a=pdm[p.g+"|"+p.t+"|"+nk(p.a)],b=pdm[p.g+"|"+p.t+"|"+nk(p.b)];const r=p.ga>p.gb?"w":p.ga<p.gb?"l":"d",iv={w:"l",l:"w",d:"d"}[r];if(a&&m[a]&&a!==b)m[a][r]++;if(b&&m[b]&&a!==b)m[b][iv]++});
+  const L=Object.values(m).sort((a,b)=>b.c-a.c||a.n.localeCompare(b.n)),tot=pd.length;
+  const g=L.length?`<div class="card"><h2${tp("I mazzi portati in questa stagione con la loro percentuale di presenza e il winrate nei match contro mazzi diversi.")}>🃏 Mazzi della stagione</h2><div class="dgal">${L.map(x=>{const n=x.w+x.l+x.d;return `<div class="dcard"${tp(`${x.n}: ${pl(x.c,"presenza","presenze")} su ${tot} (${pct(x.c/tot)})${n?`, ${x.w}-${x.l}-${x.d} nei match contro altri mazzi (winrate ${pct((x.w+x.d/2)/n)})`:""}.`)}>${dimg(x.n,"dart")}<div class="dinfo"><b>${pipsOf(x.n)}${esc(x.n)}</b><span>${pct(x.c/tot)} · ${pl(x.c,"copia","copie")}${n?` · ${pct((x.w+x.d/2)/n)} WR`:""}</span></div></div>`}).join("")}</div><p class="sub" style="font-size:.72rem;margin:8px 0 0">Illustrazioni delle carte tramite Scryfall. Magic: The Gathering © Wizards of the Coast.</p></div>`:"";
+  const played=new Set(allDecks(false).map(d=>d.k)),oth=CATALOG.filter(([n])=>!played.has(dk(n)));
+  const og=oth.length?`<div class="card"><h2${tp("Archetipi del metagame Pauper secondo MTGGoldfish che non sono ancora stati portati in lega. Non contano nelle statistiche.")}>🗂️ Altri mazzi del formato <small style="font-weight:400;color:var(--mu)">(${oth.length}, da MTGGoldfish)</small></h2><div class="dgal">${oth.map(([n,c])=>`<div class="dcard"${tp(`${n}: non ancora giocato a Firenze. Carta simbolo: ${cName(c)}.`)}>${dimg(n,"dart")}<div class="dinfo"><b>${pipsOf(n)}${esc(n)}</b><span>non ancora giocato</span></div></div>`).join("")}</div></div>`:"";
+  if(oth.length&&!catInit){CLOSEDC.add("meta|🗂️ Altri mazzi del formato ("+oth.length+", da MTGGoldfish)");catInit=true}
+  if(g&&!galInit){CLOSEDC.add("meta|🃏 Mazzi della stagione");galInit=true}
+  return g+_vMeta();
+};
+document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.classList&&e.target.classList.contains("imgc")){e.preventDefault();e.target.blur()}});
+document.addEventListener("change",async e=>{
+  const t=e.target;if(!t.classList||!t.classList.contains("imgc")||!canW)return;
+  const k=t.dataset.k,c=t.value.trim(),log=$("#imglog");
+  if(!c||c===autoCard(t.dataset.n)){delete IMG[k];save();return render()}
+  if(log)log.textContent="Cerco “"+c+"” su Scryfall…";
+  const r=await resolveImg(k,c);
+  if(r==="nf"){if(log)log.innerHTML=`<span class="err">Nessuna carta trovata con il nome “${esc(c)}”: controlla come è scritto (in inglese).</span>`;return}
+  const o=IMG[k]||(IMG[k]={});o.c=r==="ok"?(o.n||c):c;if(r==="ok"){o.uc=o.c}
+  save();render();const l2=$("#imglog");if(l2)l2.textContent=r==="ok"?"Immagine aggiornata: "+o.c+".":"Salvato. L’immagine sarà caricata direttamente da Scryfall.";
+});
+document.addEventListener("click",async e=>{
+  const rb=e.target.closest(".imgr");if(rb&&canW){delete IMG[rb.dataset.k];save();return render()}
+  const ab=e.target.closest("#imgall");if(!ab||!canW)return;
+  ab.disabled=true;const L=allDecks(),log=$("#imglog");let ok=0,ko=0;
+  for(let i=0;i<L.length;i++){const d=L[i],c=deckCard(d.n);if(!c)continue;if(log)log.textContent=`Aggiorno ${i+1} di ${L.length}: ${d.n}…`;
+    const had=!!(IMG[d.k]&&IMG[d.k].c);const r=await resolveImg(d.k,c);if(r==="ok"){ok++;if(!had)delete IMG[d.k].c}else ko++;await new Promise(z=>setTimeout(z,120))}
+  save();render();const l2=$("#imglog");if(l2)l2.innerHTML=`Immagini aggiornate: ${ok}.`+(ko?` <span class="err">Non trovate: ${ko} (controlla il nome della carta).</span>`:"");
+});
+
+/* grafico a bolle dei mazzi più giocati (bacheca) */
+const BCOL=["#6a2cb8","#2a78d6","#eb6834","#1baf7a","#d4a017","#e0447a","#0aa8bd"];
+function packCircles(rs){
+  const P=[];
+  rs.forEach((r,i)=>{
+    if(!i){P.push({x:0,y:0,r});return}
+    let best=null;
+    for(let d=0;d<4000&&!best;d+=2)for(let a=0;a<360;a+=7){const t=(a+i*47)*Math.PI/180,x=Math.cos(t)*d*1.25,y=Math.sin(t)*d*.8;
+      if(P.every(q=>Math.hypot(q.x-x,q.y-y)>=q.r+r+3)){best={x,y,r};break}}
+    P.push(best||{x:0,y:0,r});
+  });
+  return P;
+}
+function deckTip(name,se){
+  const k=dk(name),pd=pdOf(se).filter(x=>dk(x.d)===k),tot=pdOf(se).length,pdm={};pdOf(se).forEach(x=>pdm[x.g+"|"+x.t+"|"+nk(x.n)]=dk(x.d));
+  let w=0,l=0,d=0;prOf(se).forEach(p=>{if(!p.b)return;const a=pdm[p.g+"|"+p.t+"|"+nk(p.a)],b=pdm[p.g+"|"+p.t+"|"+nk(p.b)];if(a===b)return;const r=p.ga>p.gb?"w":p.ga<p.gb?"l":"d";
+    if(a===k){if(r==="w")w++;else if(r==="l")l++;else d++}else if(b===k){if(r==="l")w++;else if(r==="w")l++;else d++}});
+  const pls={};pd.forEach(x=>{const n=pName(x.n);pls[n]=(pls[n]||0)+1});
+  let best=null;pd.forEach(x=>{const r=se.recs.find(r=>r.g===x.g&&r.t===x.t&&nk(r.n)===nk(x.n));if(r&&(!best||pts(r)>pts(best.r)||(pts(r)===pts(best.r)&&r.v>best.r.v)))best={r,x}});
+  const im=deckImg(name),n=w+l+d,pn=Object.entries(pls).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]));
+  return [canon(name),
+    `Presenze: ${pd.length} su ${tot} (${tot?pct(pd.length/tot):"–"})`,
+    n?`Contro altri mazzi: ${w}-${l}-${d} (winrate ${pct((w+d/2)/n)})`:"Contro altri mazzi: nessun match registrato",
+    best?`Miglior risultato: ${pName(best.x.n)}, ${best.r.v}-${best.r.s}-${best.r.p} (${best.x.g}ª giornata, ${best.x.t==="M"?"mercoledì":"domenica"})`:"",
+    pn.length?`Giocato da: ${pn.slice(0,6).map(([a,c])=>c>1?a+" ×"+c:a).join(", ")}${pn.length>6?` e altri ${pn.length-6}`:""}`:"",
+    im?`Carta: ${cName(im.c)}`:""].filter(Boolean).join("\n");
+}
+function bubbles(dl,dtot){
+  const top=dl.slice(0,6),rest=dl.slice(6).reduce((s,x)=>s+x.c,0);
+  const rs=top.map(x=>Math.sqrt(x.c/dtot)*100),P=packCircles(rs);
+  const x0=Math.min(...P.map(p=>p.x-p.r)),x1=Math.max(...P.map(p=>p.x+p.r)),y0=Math.min(...P.map(p=>p.y-p.r)),y1=Math.max(...P.map(p=>p.y+p.r)),W=x1-x0,H=y1-y0;
+  const bub=top.map((x,i)=>{const p=P[i],im=deckImg(x.n),col=BCOL[i%BCOL.length],fx=((i*37)%9-4),fy=((i*53)%9-4);
+    return `<div class="bub" style="left:${((p.x-p.r-x0)/W*100).toFixed(2)}%;top:${((p.y-p.r-y0)/H*100).toFixed(2)}%;width:${(2*p.r/W*100).toFixed(2)}%;--bc:${col};--fx:${fx}px;--fy:${fy}px;--ft:${(5.5+i*.7).toFixed(1)}s;--fd:${(-i*1.3).toFixed(1)}s;--ed:${i*90}ms"${tp(deckTip(x.n,season()))} data-fast>${im?`<img src="${esc(im.u)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:""}</div>`}).join("");
+  const rows=top.map((x,i)=>`<div class="bl"${tp(deckTip(x.n,season()))} data-fast><span class="bn">${dimg(x.n,"bico")}${esc(x.n)}</span><span class="bv">${pct(x.c/dtot)}</span><span class="bb"><i style="width:${(x.c/dtot*100).toFixed(1)}%;background:${BCOL[i%BCOL.length]}"></i></span></div>`).join("")
+    +(rest?`<div class="bl"><span class="bn"><span class="bico oth"></span>Altri</span><span class="bv">${pct(rest/dtot)}</span><span class="bb"><i style="width:${(rest/dtot*100).toFixed(1)}%;background:var(--so)"></i></span></div>`:"");
+  return `<div class="bwrap"><div class="bstage" style="aspect-ratio:${W.toFixed(1)} / ${H.toFixed(1)}">${bub}</div><div class="blist">${rows}</div></div>`;
+}
+
+/* tierlist con le immagini dei mazzi: al passaggio del cursore nome e punteggio */
+function tierTile(n,sc){const i=deckImg(n);return `<span class="ttile"${tp(n+" "+sc)} data-fast>${i?`<img src="${esc(i.u)}" alt="${esc(n)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:""}</span>`}
 
 render();
 
