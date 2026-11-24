@@ -350,6 +350,47 @@ kbd{display:inline-block;min-width:1.6em;padding:1px 6px;border-radius:6px;borde
 .lnk2{background:none;border:0;padding:0;color:var(--ac);font-weight:700;cursor:pointer;text-decoration:underline;font-size:inherit}
 #scutbox .lnk2{font-size:.82rem}
 
+.scutlead{margin:4px 0 12px;font-size:1.05rem;font-weight:700;text-align:center;color:var(--tx)}
+.scutgo{display:flex;justify-content:center;margin:0 0 6px}
+#scutgo{display:inline-flex;align-items:center;gap:10px;font-size:1rem!important;padding:12px 22px!important}#scutgo img{width:22px;height:22px;border-radius:5px}
+/* ===== telefono ===== */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;overscroll-behavior-x:contain}
+.card,.hgrid>*{min-width:0}
+@media(max-width:860px){.hgrid{grid-template-columns:minmax(0,1fr)!important}}
+@media(max-width:640px){
+  body{font-size:15px}
+  main{padding:10px 10px 0}
+  .topin{flex-wrap:wrap;row-gap:4px;padding:8px 10px 6px}
+  .brand span{display:inline!important;font-size:.95rem}
+  .tact{margin-left:auto}
+  .top nav{order:3;flex:0 0 100%;overflow-x:auto;scroll-snap-type:x proximity;-webkit-mask:linear-gradient(90deg,#000 88%,transparent);mask:linear-gradient(90deg,#000 88%,transparent);padding-right:24px}
+  .top nav button{scroll-snap-align:start;padding:7px 12px;font-size:.84rem}
+  .pghead{margin:4px 2px 10px}.pghead h1{font-size:1.35rem}.pghead .tag{display:none}
+  .card{padding:13px 12px;border-radius:18px;margin-bottom:12px}
+  h2{font-size:1rem}
+  .subnav{display:flex;flex-wrap:nowrap;overflow-x:auto;max-width:100%;scrollbar-width:none}.subnav::-webkit-scrollbar{display:none}
+  .subnav button{white-space:nowrap;flex:none;padding:7px 13px}
+  #view table{font-size:13.5px}
+  #view th,#view td{padding:6px 7px}
+  .tw table.rank th:nth-child(2),.tw table.rank td:nth-child(2){position:sticky;left:0;z-index:1;background:var(--card);box-shadow:6px 0 8px -6px rgba(0,0,0,.18)}
+  .tw table.rank tr:nth-child(even) td:nth-child(2){background:inherit}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.kpi{padding:10px 12px;border-radius:16px}.kpi b{font-size:1.35rem}
+  .recap{gap:8px}.recap .rc{min-width:0;flex:1 1 calc(50% - 8px);padding:8px 10px}.recap .rc b{font-size:.92rem}
+  .lb li{gap:9px;padding:6px 2px}.rk{width:30px;height:30px;font-size:.78rem}.lb .nm2 small{font-size:.7rem}
+  .ev{padding:7px 10px}.dt{width:40px;height:40px}
+  #bar .row.bar{border-radius:18px;padding:6px 10px}
+  #scut{transform:scale(.8);transform-origin:100% 100%;right:14px!important;bottom:14px!important}
+  #mus{transform:scale(.85);transform-origin:0 100%;left:8px!important;bottom:10px!important}
+  .thx{padding-bottom:64px!important}
+  .bwrap{gap:12px}.bstage{max-width:340px!important}
+  .ttile{width:66px;height:50px}
+}
+@media(max-width:640px){
+  .dgal{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.dinfo{padding:6px 8px}.dinfo b{font-size:.85rem}.dinfo span{font-size:.72rem}
+  #psearch{margin-left:0!important;flex:1 1 100%!important;min-width:0}
+  .row.ctl{gap:8px}
+}
+
 </style></head><body>
 <header class="top"><div class="topin"><button type="button" class="brand" data-tab="home" aria-label="Lega Pauper Firenze, torna alla bacheca"><i aria-hidden="true"></i><span>LPF</span></button><nav role="tablist" id="nav" aria-label="Sezioni"></nav><div class="tact"><button type="button" class="ic" id="thm"></button><button type="button" class="ic" id="stf"></button></div></div></header>
 <main>
@@ -2675,7 +2716,7 @@ vPlayers=function(){
   else h=h.replace('<div class="row ctl">','<div class="row ctl">'+srch);
   return h};
 const _render=render;
-render=function(){_render();if(tab==="pl"&&psq)applyPSearch();topIcons();document.title=(tab==="home"?"Bacheca":(($("#nav [aria-selected=true]")||{}).textContent||"LPF"))+" · Lega Pauper Firenze"};
+render=function(){_render();try{const sel=document.querySelector(".top nav [aria-selected=true]");if(sel&&matchMedia("(max-width:640px)").matches)sel.scrollIntoView({inline:"center",block:"nearest"})}catch(e){}const sb=document.querySelector(".subnav [aria-selected=true]");if(sb&&sb.parentNode.scrollWidth>sb.parentNode.clientWidth)try{sb.parentNode.scrollLeft=sb.offsetLeft-20}catch(e){}if(tab==="pl"&&psq)applyPSearch();topIcons();document.title=(tab==="home"?"Bacheca":(($("#nav [aria-selected=true]")||{}).textContent||"LPF"))+" · Lega Pauper Firenze"};
 
 /* ===================== Lettura da foto senza Claude =====================
    Usa l’API di Anthropic con la chiave personale dello staff, salvata SOLO nel browser di chi la inserisce. */
@@ -2934,12 +2975,12 @@ startSync();
     try{if(window.sidebar&&window.sidebar.addPanel){window.sidebar.addPanel(document.title,URL_,"");return}if(window.external&&("AddFavorite" in window.external)){window.external.AddFavorite(URL_,document.title);return}}catch(e){}
     const k=mac?"⌘":"Ctrl";
     const o=box("Salva la Lega Pauper Firenze",
-      '<p class="sub" style="margin:0 0 10px">Per sicurezza i browser non permettono ai siti di aggiungersi da soli ai preferiti. Scegli uno di questi modi, è questione di un secondo:</p>'
-      +'<div class="scutopt"><b>1. Premi <kbd>'+k+'</kbd> + <kbd>D</kbd></b><span>Si apre la finestra dei preferiti del browser: scegli la cartella <i>Barra dei preferiti</i> e premi <i>Fine</i>.</span></div>'
-      +'<div class="scutopt"><b>2. Trascina questo pulsante nella barra dei preferiti</b><span>Tienilo premuto e rilascialo sulla barra sotto l’indirizzo. Se la barra non si vede, premi <kbd>'+k+'</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>.</span><a class="scutdrag" href="'+URL_+'" title="Lega Pauper Firenze" draggable="true" onclick="event.preventDefault()"><img src="favicon-32.png" alt="" onerror="this.remove()">Lega Pauper Firenze</a></div>'
-      +(dip?'<div class="scutopt"><b>3. Oppure installala come app</b><span>Crea un’icona LPF sul desktop e nel menu Start, e il sito si apre in una finestra tutta sua.</span></div>':""),
-      dip?'<button type="button" class="b" id="scutin">Installa come app</button>':"");
-    const bi=o.querySelector("#scutin");if(bi)bi.onclick=install;
+      '<p class="scutlead">Clicca sotto per installare un collegamento rapido al sito</p>'
+      +'<div class="scutgo"><button type="button" class="b" id="scutgo"><img src="favicon-32.png" alt="" onerror="this.remove()">Installa collegamento LPF</button></div>'
+      +'<div id="scuthint" hidden><p class="sub" style="margin:10px 0 8px">Questo browser non permette di installarlo con un clic. Fai così, è questione di un secondo:</p>'
+      +'<div class="scutopt"><b>Premi <kbd>'+k+'</kbd> + <kbd>D</kbd></b><span>Nella finestra che si apre scegli la cartella <i>Barra dei preferiti</i> e premi <i>Fine</i>.</span></div>'
+      +'<div class="scutopt"><b>Oppure trascina questo pulsante nella barra dei preferiti</b><span>Se la barra non si vede, premi <kbd>'+k+'</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>.</span><a class="scutdrag" href="'+URL_+'" title="Lega Pauper Firenze" draggable="true" onclick="event.preventDefault()"><img src="favicon-32.png" alt="" onerror="this.remove()">Lega Pauper Firenze</a></div></div>');
+    o.querySelector("#scutgo").onclick=()=>{if(dip)return install();const h=o.querySelector("#scuthint");h.hidden=false;o.querySelector(".scutgo").hidden=true};
   });
   document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
 })();
