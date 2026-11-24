@@ -1,0 +1,16 @@
+{
+  "name": "Lega Pauper Firenze",
+  "short_name": "LPF",
+  "description": "Classifiche, Elo, metagame e statistiche della Lega Pauper Firenze.",
+  "lang": "it",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fffdf8",
+  "theme_color": "#6a2cb8",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}

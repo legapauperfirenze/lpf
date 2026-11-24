@@ -4,6 +4,13 @@
 <title>Lega Pauper Firenze</title>
 <meta name="description" content="Lega Pauper Firenze: classifiche, Elo, metagame e statistiche della lega.">
 <meta name="theme-color" content="#6a2cb8">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="LPF">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <script src="config.js"></script>
 <script>try{var t=localStorage.getItem("lpf-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -320,6 +327,28 @@ main{padding-bottom:0!important}
 .thx .staffl{margin:6px 0 0!important}
 
 #psearch{flex:0 1 320px!important;margin-left:auto}
+
+.scuthd{display:flex;align-items:center;gap:10px;margin:0 0 8px}.scuthd img{width:40px;height:40px;border-radius:10px}.scuthd h3{margin:0}
+.scutol{margin:6px 0 10px;padding-left:20px;line-height:1.5}.scutol li{margin:4px 0}
+.scutopt{border:1px solid var(--bd);border-radius:14px;padding:10px 12px;margin:0 0 8px;background:var(--row)}.scutopt b{display:block;margin-bottom:3px}.scutopt span{display:block;font-size:.86rem;color:var(--mu)}
+kbd{display:inline-block;min-width:1.6em;padding:1px 6px;border-radius:6px;border:1px solid var(--bd);border-bottom-width:3px;background:var(--card);font:700 .85em var(--font);text-align:center;color:var(--tx)}
+.scutdrag{display:inline-flex;align-items:center;gap:8px;margin-top:8px;padding:7px 14px;border-radius:999px;background:var(--ac);color:#fff!important;font-weight:700;text-decoration:none;cursor:grab;box-shadow:0 4px 12px rgba(106,44,184,.3)}.scutdrag img{width:18px;height:18px;border-radius:4px}
+#lpftoast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,30px);opacity:0;background:#1f1630;color:#fff;padding:10px 16px;border-radius:999px;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.3);transition:.3s;z-index:80;pointer-events:none}#lpftoast.on{opacity:1;transform:translate(-50%,0)}
+
+#scut{right:24px!important;bottom:24px!important;overflow:visible;box-shadow:0 6px 16px rgba(59,22,115,.25)}
+.scring{position:absolute;left:50%;top:50%;width:92px;height:92px;margin:-46px 0 0 -46px;pointer-events:none;overflow:visible;animation:scspin 18s linear infinite}
+.scring text{font:800 9.5px var(--font);fill:var(--ac);letter-spacing:.5px}
+#scut:hover .scring{animation-duration:6s}
+@keyframes scspin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.scring{animation:none}}
+@media(max-width:640px){#scut{right:20px!important;bottom:20px!important}}
+
+.scring .scbg{fill:var(--card);stroke:var(--bd);stroke-width:1;opacity:.96;filter:drop-shadow(0 4px 10px rgba(59,22,115,.22))}
+#scut{box-shadow:none!important;background:transparent!important}
+#scut i{position:relative;z-index:1}
+
+.lnk2{background:none;border:0;padding:0;color:var(--ac);font-weight:700;cursor:pointer;text-decoration:underline;font-size:inherit}
+#scutbox .lnk2{font-size:.82rem}
 
 </style></head><body>
 <header class="top"><div class="topin"><button type="button" class="brand" data-tab="home" aria-label="Lega Pauper Firenze, torna alla bacheca"><i aria-hidden="true"></i><span>LPF</span></button><nav role="tablist" id="nav" aria-label="Sezioni"></nav><div class="tact"><button type="button" class="ic" id="thm"></button><button type="button" class="ic" id="stf"></button></div></div></header>
@@ -2863,31 +2892,54 @@ startSync();
   if(on){play().then(ok=>{if(ok)off()});addEventListener("load",()=>{if(!src)play().then(ok=>{if(ok)off()})});addEventListener("focus",()=>{if(on&&!src)play().then(ok=>{if(ok)off()})})}
 })();
 
-/* scorciatoia: pulsante fisso in basso a destra con istruzioni per aggiungere il sito alla schermata Home / al desktop */
+/* scorciatoia: su telefono aggiunge l'icona LPF alla schermata Home, su computer aiuta a salvare il sito nei preferiti */
 (function(){
   const URL_=location.href.split("#")[0];
+  const ua=navigator.userAgent||"",ios=/iPhone|iPad|iPod/.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1),and=/Android/.test(ua),mob=ios||and,mac=!ios&&/Mac/.test(navigator.platform||ua);
+  const inApp=()=>{try{return matchMedia("(display-mode: standalone)").matches||navigator.standalone===true}catch(e){return false}};
   let dip=null;window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();dip=e});
+  const HK="lpf-scorciatoia",done=()=>{try{return localStorage.getItem(HK)==="1"}catch(e){return false}},setDone=()=>{try{localStorage.setItem(HK,"1")}catch(e){}};
+  window.addEventListener("appinstalled",()=>{dip=null;setDone();toast("Fatto! L’icona LPF è stata aggiunta.");b.remove()});
+  if("serviceWorker" in navigator&&location.protocol==="https:"){try{navigator.serviceWorker.register("sw.js").catch(()=>{})}catch(e){}}
+  if(inApp()){setDone();return}
   const b=document.createElement("button");b.id="scut";b.type="button";b.className="g";b.setAttribute("data-fast","");
-  b.setAttribute("data-tip","Aggiungi una scorciatoia a questo sito sul telefono o sul computer, per aprirlo subito con un tocco.");
-  b.setAttribute("aria-label","Installa scorciatoia per accedere subito al sito");
-  b.innerHTML='<i aria-hidden="true"></i>';
-  document.body.appendChild(b);
-  const ua=navigator.userAgent||"",ios=/iPhone|iPad|iPod/.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1),and=/Android/.test(ua);
-  const steps=ios?["Tocca il pulsante <b>Condividi</b> di Safari (il quadrato con la freccia in su).","Scorri e scegli <b>Aggiungi alla schermata Home</b>.","Conferma con <b>Aggiungi</b>."]
-   :and?["Tocca il menu <b>⋮</b> di Chrome in alto a destra.","Scegli <b>Aggiungi a schermata Home</b> (o <b>Installa app</b>).","Conferma con <b>Aggiungi</b>."]
-   :["Nel menu <b>⋮</b> di Chrome o Edge scegli <b>Salva e condividi → Crea collegamento</b> (Edge: <b>App → Installa questo sito come app</b>).","Spunta <b>Apri come finestra</b> se vuoi una finestra tutta sua e conferma.","In alternativa premi <b>Ctrl+D</b> (⌘+D su Mac) per salvare il sito tra i preferiti."];
+  const lab=mob?"Aggiungi l’icona LPF alla schermata Home del telefono: un tocco e si apre il sito.":"Aggiungi il sito ai preferiti del browser (o come app sul desktop) per aprirlo con un clic.";
+  b.setAttribute("data-tip",lab);b.setAttribute("aria-label",lab);
+  b.innerHTML='<svg class="scring" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="scpath" d="M50,50 m-41,0 a41,41 0 1,1 82,0 a41,41 0 1,1 -82,0"/></defs><circle class="scbg" cx="50" cy="50" r="49"/><text><textPath href="#scpath" textLength="252" lengthAdjust="spacingAndGlyphs">AGGIUNGI SCORCIATOIA AL SITO • </textPath></text></svg><i aria-hidden="true"></i>';
+  if(!done())document.body.appendChild(b);
+  /* link nei ringraziamenti per riaprire le istruzioni anche dopo aver nascosto il pulsante */
+  const addFoot=()=>{const f=document.querySelector("footer.thx .staffl");if(f&&!document.getElementById("scutl")){const a=document.createElement("button");a.type="button";a.id="scutl";a.className="lnk2";a.textContent=mob?"Aggiungi l’icona LPF al telefono":"Salva il sito nei preferiti";a.onclick=()=>b.click();f.append(" · ",a)}};
+  new MutationObserver(addFoot).observe(document.body,{childList:true,subtree:true});addFoot();
+  function toast(t){let x=document.getElementById("lpftoast");if(!x){x=document.createElement("div");x.id="lpftoast";x.setAttribute("role","status");document.body.appendChild(x)}x.textContent=t;x.classList.add("on");clearTimeout(x._t);x._t=setTimeout(()=>x.classList.remove("on"),3500)}
   const close=()=>{const x=document.getElementById("scutbox");if(x)x.remove()};
-  b.addEventListener("click",()=>{
+  const shareIc='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>';
+  function box(title,body,btns){
     close();const o=document.createElement("div");o.id="scutbox";
-    o.innerHTML='<div role="dialog" aria-label="Installa scorciatoia"><h3>Scorciatoia sul tuo dispositivo</h3><p class="sub" style="margin:0">Aggiungi il sito alla schermata Home o al desktop per aprirlo con un tocco.</p><ol>'+steps.map(x=>"<li>"+x+"</li>").join("")+'</ol><p class="sub" style="margin:0">Se non vedi l’opzione, apri prima il sito dal link qui sotto, direttamente nel browser, e ripeti.</p><input type="text" readonly value="'+URL_+'" aria-label="Link del sito"><div class="row"><button type="button" class="b" id="scutcp">Copia link</button>'+(dip?'<button type="button" class="b" id="scutin">Installa ora</button>':"")+'<button type="button" class="g" id="scutx">Chiudi</button></div><p class="sub" id="scutmsg" style="margin:8px 0 0" aria-live="polite"></p></div>';
-    document.body.appendChild(o);
-    const msg=t=>{const m=document.getElementById("scutmsg");if(m)m.textContent=t};
-    o.addEventListener("click",e=>{if(e.target===o)close()});
-    document.getElementById("scutx").onclick=close;
-    document.getElementById("scutcp").onclick=async()=>{
-      try{await navigator.clipboard.writeText(URL_);msg("Link copiato.")}
-      catch(e){const i=o.querySelector("input");i.focus();i.select();msg("Copia il link selezionato (Ctrl+C o tieni premuto e scegli Copia).")}};
-    const bi=document.getElementById("scutin");if(bi)bi.onclick=async()=>{try{dip.prompt();await dip.userChoice}catch(e){}dip=null;close()};
+    o.innerHTML='<div role="dialog" aria-label="'+title+'"><div class="scuthd"><img src="apple-touch-icon.png" alt="" onerror="this.remove()"><h3>'+title+'</h3></div>'+body+'<div class="row end"><button type="button" class="lnk2" id="scutdone" style="margin-right:auto">L’ho già fatto, nascondi il pulsante</button>'+(btns||"")+'<button type="button" class="g" id="scutx">Chiudi</button></div></div>';
+    document.body.appendChild(o);o.addEventListener("click",e=>{if(e.target===o)close()});document.getElementById("scutx").onclick=close;document.getElementById("scutdone").onclick=()=>{setDone();close();b.remove();toast("Pulsante nascosto. Lo ritrovi in fondo alla pagina, nei ringraziamenti.")};return o;
+  }
+  async function install(){try{dip.prompt();const r=await dip.userChoice;dip=null;close();if(r&&r.outcome==="accepted"){setDone();b.remove()}if(r&&r.outcome==="accepted")toast("Fatto! Trovi l’icona LPF "+(mob?"nella schermata Home.":"sul desktop e tra le app."))}catch(e){}}
+  b.addEventListener("click",()=>{
+    /* Android (Chrome, Edge, Samsung): un tocco e il telefono chiede di aggiungere l'icona */
+    if(and&&dip)return install();
+    if(ios){
+      box("Icona LPF sul tuo iPhone",'<p class="sub" style="margin:0 0 6px">Su iPhone Apple non permette ai siti di aggiungere l’icona da soli: bastano tre tocchi.</p><ol class="scutol"><li>Tocca <b>Condividi</b> '+shareIc+' (in Safari è nella barra in basso; in Chrome in alto a destra).</li><li>Scorri e scegli <b>Aggiungi alla schermata Home</b>.</li><li>Tocca <b>Aggiungi</b>: comparirà l’icona viola LPF.</li></ol>');
+      return;
+    }
+    if(and){
+      box("Icona LPF sul tuo telefono",'<ol class="scutol"><li>Tocca il menu <b>⋮</b> del browser in alto a destra.</li><li>Scegli <b>Aggiungi a schermata Home</b> (o <b>Installa app</b>).</li><li>Conferma con <b>Aggiungi</b>: comparirà l’icona viola LPF.</li></ol>');
+      return;
+    }
+    /* computer: vecchi browser che lo permettono */
+    try{if(window.sidebar&&window.sidebar.addPanel){window.sidebar.addPanel(document.title,URL_,"");return}if(window.external&&("AddFavorite" in window.external)){window.external.AddFavorite(URL_,document.title);return}}catch(e){}
+    const k=mac?"⌘":"Ctrl";
+    const o=box("Salva la Lega Pauper Firenze",
+      '<p class="sub" style="margin:0 0 10px">Per sicurezza i browser non permettono ai siti di aggiungersi da soli ai preferiti. Scegli uno di questi modi, è questione di un secondo:</p>'
+      +'<div class="scutopt"><b>1. Premi <kbd>'+k+'</kbd> + <kbd>D</kbd></b><span>Si apre la finestra dei preferiti del browser: scegli la cartella <i>Barra dei preferiti</i> e premi <i>Fine</i>.</span></div>'
+      +'<div class="scutopt"><b>2. Trascina questo pulsante nella barra dei preferiti</b><span>Tienilo premuto e rilascialo sulla barra sotto l’indirizzo. Se la barra non si vede, premi <kbd>'+k+'</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>.</span><a class="scutdrag" href="'+URL_+'" title="Lega Pauper Firenze" draggable="true" onclick="event.preventDefault()"><img src="favicon-32.png" alt="" onerror="this.remove()">Lega Pauper Firenze</a></div>'
+      +(dip?'<div class="scutopt"><b>3. Oppure installala come app</b><span>Crea un’icona LPF sul desktop e nel menu Start, e il sito si apre in una finestra tutta sua.</span></div>':""),
+      dip?'<button type="button" class="b" id="scutin">Installa come app</button>':"");
+    const bi=o.querySelector("#scutin");if(bi)bi.onclick=install;
   });
   document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
 })();
