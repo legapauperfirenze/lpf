@@ -3,8 +3,8 @@
 window.LPF_CONFIG = {
   /* Database online Supabase: Project Settings → API (o "Connect").
      Lasciali vuoti ("") per usare solo il file dati.json. */
-  supabaseUrl: "",      // esempio: "https://abcdefghijk.supabase.co"
-  supabaseKey: "",      // la chiave "anon public" oppure "publishable" (sb_publishable_...)
+  supabaseUrl: "https://pbfirzuhhkirupmfgbxf.supabase.co",      // esempio: "https://abcdefghijk.supabase.co"
+  supabaseKey: "sb_publishable_uQJkLq5tr-bwfl87UGr7oQ_UN92qvH7",      // la chiave "anon public" oppure "publishable" (sb_publishable_...)
 
   /* PIN dell'area staff, usato SOLO quando il database non è collegato.
      Con il database collegato si entra con email e password. */
