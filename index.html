@@ -391,6 +391,49 @@ kbd{display:inline-block;min-width:1.6em;padding:1px 6px;border-radius:6px;borde
   .row.ctl{gap:8px}
 }
 
+/* copertina */
+.cover{position:relative;overflow:hidden;border-radius:var(--rad);min-height:250px;margin:0 0 16px;display:flex;align-items:flex-end;cursor:pointer;background:radial-gradient(120% 140% at 85% 10%,var(--brand-l),var(--brand) 45%,var(--brand-d));box-shadow:var(--shadow);isolation:isolate}
+.cvart{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;z-index:-2;transform:scale(1.02);transition:transform 6s ease}
+.cover:hover .cvart{transform:scale(1.07)}
+.cover::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(20,8,38,.88) 0%,rgba(20,8,38,.55) 45%,rgba(20,8,38,.05) 80%),linear-gradient(0deg,rgba(20,8,38,.6),transparent 55%)}
+.cvin{padding:26px 28px;color:#fff;max-width:640px}
+.cvk{display:inline-block;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.16);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.25);padding:4px 10px;border-radius:999px}
+.cvn{margin:10px 0 8px!important;font-size:clamp(1.8rem,5.5vw,3.1rem)!important;line-height:1.02;font-weight:900!important;color:#fff;text-shadow:0 3px 18px rgba(0,0,0,.5);display:block!important}
+.cvm{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-weight:700}
+.cvr{font-size:1.25rem;font-weight:900;color:#f4d36b}
+.cvd{display:inline-flex;align-items:center;font-size:1rem}.cvd .pips2 i{box-shadow:0 0 0 1px rgba(255,255,255,.6) inset}
+.cvg{font-size:.85rem;opacity:.85}
+@media(max-width:640px){.cover{min-height:210px;border-radius:18px;margin-bottom:12px}.cvin{padding:18px 16px}.cover::after{background:linear-gradient(0deg,rgba(20,8,38,.92) 10%,rgba(20,8,38,.35) 70%,rgba(20,8,38,.1))}}
+@media (prefers-reduced-motion:reduce){.cvart{transition:none}}
+/* miniature dei mazzi */
+.mdk{display:inline-block;flex:none;width:30px;height:30px;border-radius:50%;overflow:hidden;vertical-align:middle;margin-right:8px;background:linear-gradient(135deg,var(--row),var(--bd));box-shadow:0 0 0 2px var(--card),0 0 0 3px var(--bd);cursor:help}
+.mdk img{width:100%;height:100%;object-fit:cover;display:block}
+.lb .mdk{width:34px;height:34px;margin-right:0}
+#view table.rank td .mdk{width:26px;height:26px;margin-right:7px}
+
+.kpis.kbot{margin:16px 0 0}
+@media(max-width:640px){.kpis.kbot{margin-top:12px}}
+
+/* pulsante scorciatoia: etichetta sotto, senza scritta circolare */
+.scring{display:none!important}
+#scut{right:22px!important;bottom:46px!important;transform:none!important;box-shadow:0 8px 20px rgba(59,22,115,.3)!important;background:var(--card)!important;border:2px solid var(--ac)!important;overflow:visible}
+#scut:hover{transform:translateY(-2px)!important}
+#scut .sclab{position:absolute;left:50%;top:calc(100% + 6px);transform:translateX(-50%);white-space:nowrap;text-align:center;font-family:"Cinzel",Georgia,serif!important;font-weight:700;font-size:.66rem;line-height:1.15;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:linear-gradient(100deg,var(--brand-d),var(--brand) 60%,var(--brand-l));padding:4px 9px 3px;border-radius:9px;box-shadow:0 4px 12px rgba(59,22,115,.35);pointer-events:none}
+#scut .sclab::before{content:"";position:absolute;left:50%;top:-4px;margin-left:-4px;border:4px solid transparent;border-top:0;border-bottom-color:var(--brand)}
+@media(max-width:640px){#scut{right:16px!important;bottom:44px!important}#scut .sclab{font-size:.6rem}.thx{padding-bottom:84px!important}}
+#scut{right:34px!important}
+@media(max-width:640px){#scut{right:30px!important}}
+
+.lbwide .lb{columns:2;column-gap:52px}.lbwide .lb li{break-inside:avoid}
+@media(max-width:860px){.lbwide .lb{columns:1}}
+.hgrid>.card:not(.span2) .bwrap{grid-template-columns:1fr}
+.hgrid>.card:not(.span2) .bstage{max-width:400px!important;margin:4px auto 8px!important}
+
+.rcwrap{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:20px;align-items:start}
+.rcprev img{display:block;width:100%;aspect-ratio:9/16;border-radius:18px;background:linear-gradient(160deg,var(--brand-d),var(--brand));box-shadow:0 14px 34px rgba(30,10,60,.35)}
+.rcside{display:flex;flex-direction:column;gap:10px}.rcside .b,.rcside .g{align-self:flex-start;padding:10px 20px!important}
+@media(max-width:640px){.rcwrap{grid-template-columns:1fr}.rcprev img{max-width:300px;margin:0 auto}}
+
 </style></head><body>
 <header class="top"><div class="topin"><button type="button" class="brand" data-tab="home" aria-label="Lega Pauper Firenze, torna alla bacheca"><i aria-hidden="true"></i><span>LPF</span></button><nav role="tablist" id="nav" aria-label="Sezioni"></nav><div class="tact"><button type="button" class="ic" id="thm"></button><button type="button" class="ic" id="stf"></button></div></div></header>
 <main>
@@ -979,15 +1022,15 @@ ${ubl.length?`<h3${tp("Le serie più lunghe di match consecutivi senza sconfitte
 function render(){
   renderBar();
   if(noData){$("#nav").innerHTML="";$("#view").innerHTML=noticeHtml();return}
-  const all=[["home","Bacheca"],["cl","Classifiche"],["meta","Meta"],["inc","Winrate"],["pl","Giocatori"],["cal","Eventi"],["raw","Dati grezzi"],["import","Importa"],["dati","Dati"]];
-  const tabs=roUI()?all.filter(x=>x[0]!=="import"&&x[0]!=="dati"):all;
+  const all=[["home","Bacheca"],["cl","Classifiche"],["meta","Meta"],["inc","Winrate"],["pl","Giocatori"],["cal","Eventi"],["raw","Dati grezzi"],["import","Importa"],["recap","Recap"],["dati","Dati"]];
+  const tabs=roUI()?all.filter(x=>x[0]!=="import"&&x[0]!=="dati"&&x[0]!=="recap"):all;
   if(CL.includes(tab))csub=tab;
   if(IS_RO&&tab==="team")tab="pl";
   if(PL.includes(tab))psub=tab;
   if(!tabs.some(x=>x[0]===tab)&&!CL.includes(tab)&&!PL.includes(tab))tab="home";
   $("#nav").innerHTML=tabs.map(([k,l])=>`<button role="tab"${tp(TABT[k])} data-tab="${k}" aria-selected="${k==="cl"?CL.includes(tab):k==="pl"?PL.includes(tab):tab===k}">${l}</button>`).join("");
   const subnav=CL.includes(tab)?`<div class="subnav" role="tablist">${CL.map(k=>`<button role="tab"${tp(TABT[k])} data-tab="${k}" aria-selected="${tab===k}">${CLL[k]}</button>`).join("")}</div>`:PL.includes(tab)?`<div class="subnav" role="tablist">${PL.filter(k=>!(IS_RO&&k==="team")).map(k=>`<button role="tab"${tp(TABT[k])} data-tab="${k}" aria-selected="${tab===k}">${PLL[k]}</button>`).join("")}</div>`:"";
-  $("#view").innerHTML=subnav+(tab==="home"?vHome():tab==="cmp"?vCmp():tab==="import"?vImport():tab==="dati"?vData():tab==="top"?vTop():tab==="meta"?vMeta():tab==="inc"?vInc():tab==="team"?vTeam():tab==="hof"?vHof():tab==="pl"?vPlayers():tab==="cal"?vCal():tab==="raw"?vRaw():vTable(tab));
+  $("#view").innerHTML=subnav+(tab==="home"?vHome():tab==="recap"?vRecap():tab==="cmp"?vCmp():tab==="import"?vImport():tab==="dati"?vData():tab==="top"?vTop():tab==="meta"?vMeta():tab==="inc"?vInc():tab==="team"?vTeam():tab==="hof"?vHof():tab==="pl"?vPlayers():tab==="cal"?vCal():tab==="raw"?vRaw():vTable(tab));
   collapsify();
   fastTips();
   if(tab==="import")initPhoto();
@@ -2616,8 +2659,8 @@ function vHome(){
     const dOf=n=>{const x=pd.find(y=>y.g===L.g&&y.t===L.t&&nk(y.n)===nk(n));return x?canon(x.d):""};
     const md={};pd.filter(y=>y.g===L.g&&y.t===L.t).forEach(y=>{const k=canon(y.d);md[k]=(md[k]||0)+1});const mtop=Object.entries(md).sort((a,b)=>b[1]-a[1])[0];
     const nx=ev.find(x=>x.d>=today);
-    rec=`<div class="recap"><div class="rc"${tp("L’ultima tappa con risultati in questa stagione.")}><small>Ultima tappa</small><b>${L.g}ª giornata · ${LB[L.t]}</b><span>${rs.length} giocatori</span></div>${win.length?`<div class="rc"${tp("Chi ha fatto il risultato migliore nell’ultima tappa.")}><small>Miglior risultato</small><b>${win.map(r=>esc(pName(r.n))).join(", ")}</b><span>${win[0].v}-${win[0].s}-${win[0].p}${win.length===1&&dOf(win[0].n)?" · "+esc(dOf(win[0].n)):""}</span></div>`:""}${mtop?`<div class="rc"${tp("Il mazzo più presente nell’ultima tappa.")}><small>Mazzo più giocato</small><b>${pipsOf(mtop[0])}${esc(mtop[0])}</b><span>${pl(mtop[1],"copia","copie")}</span></div>`:""}${nx?`<div class="rc"${tp("Il prossimo appuntamento in calendario.")}><small>Prossimo evento</small><b>${esc(String(nx.t).split("·")[0].trim())}</b><span>${new Date(nx.d+"T12:00:00").toLocaleDateString("it-IT",{weekday:"short",day:"numeric",month:"short"})}${nx.h?" · "+esc(nx.h):""}</span></div>`:""}</div>`}
-  return `${kpis}${rec?`<div class="card">${rec}</div>`:""}<div class="hgrid"><div class="card"><div class="hh"><h2${tp("Gli eventi della lega: le ultime tappe giocate e le prossime.")}>📅 Eventi</h2><button class="lnk" data-tab="cal">Tutti gli eventi ›</button></div>${evh}</div><div class="card"><div class="hh"><h2${tp(`I primi 10 della classifica generale della stagione ${se.name}.`)}>🏆 Classifica generale</h2>${calT?ring(tap.size,calT):""}</div>${lbh}<div class="hh" style="margin:10px 0 0"><span></span><button class="lnk" data-tab="G">Classifica completa ›</button></div></div><div class="card span2"><div class="hh"><h2${tp("I mazzi più portati in questa stagione, in percentuale sulle presenze registrate.")}>🃏 Più giocati</h2><button class="lnk" data-tab="meta">Meta ›</button></div>${mgh}</div></div>`;
+    rec=`<div class="recap"><div class="rc"${tp("L’ultima tappa con risultati in questa stagione.")}><small>Ultima tappa</small><b>${L.g}ª giornata · ${LB[L.t]}</b><span>${rs.length} giocatori</span></div>${mtop?`<div class="rc"${tp("Il mazzo più presente nell’ultima tappa.")}><small>Mazzo più giocato</small><b>${pipsOf(mtop[0])}${esc(mtop[0])}</b><span>${pl(mtop[1],"copia","copie")}</span></div>`:""}</div>`}
+  return `${rec?`<div class="card">${rec}</div>`:""}<div class="hgrid"><div class="card"><div class="hh"><h2${tp("Gli eventi della lega: le ultime tappe giocate e le prossime.")}>📅 Eventi</h2><button class="lnk" data-tab="cal">Tutti gli eventi ›</button></div>${evh}</div><div class="card"><div class="hh"><h2${tp("I mazzi più portati in questa stagione, in percentuale sulle presenze registrate.")}>🃏 Più giocati</h2><button class="lnk" data-tab="meta">Meta ›</button></div>${mgh}</div><div class="card span2 lbwide"><div class="hh"><h2${tp(`I primi 10 della classifica generale della stagione ${se.name}.`)}>🏆 Classifica generale</h2>${calT?ring(tap.size,calT):""}</div>${lbh}<div class="hh" style="margin:10px 0 0"><span></span><button class="lnk" data-tab="G">Classifica completa ›</button></div></div></div>${kpis.replace('class="kpis"','class="kpis kbot"')}`;
 }
 /* scheda del giocatore dalla bacheca */
 function openPlayer(k){tab="pl";psub="pl";psq="";render();const tr=[...document.querySelectorAll("tr.pdr[data-k]")].find(x=>x.dataset.k===k);if(tr){const r=tr.nextElementSibling;if(r&&r.classList.contains("pdt")&&r.hidden){r.hidden=false;tr.classList.add("op")}tr.scrollIntoView({block:"start",behavior:"smooth"})}}
@@ -2716,7 +2759,7 @@ vPlayers=function(){
   else h=h.replace('<div class="row ctl">','<div class="row ctl">'+srch);
   return h};
 const _render=render;
-render=function(){_render();try{const sel=document.querySelector(".top nav [aria-selected=true]");if(sel&&matchMedia("(max-width:640px)").matches)sel.scrollIntoView({inline:"center",block:"nearest"})}catch(e){}const sb=document.querySelector(".subnav [aria-selected=true]");if(sb&&sb.parentNode.scrollWidth>sb.parentNode.clientWidth)try{sb.parentNode.scrollLeft=sb.offsetLeft-20}catch(e){}if(tab==="pl"&&psq)applyPSearch();topIcons();document.title=(tab==="home"?"Bacheca":(($("#nav [aria-selected=true]")||{}).textContent||"LPF"))+" · Lega Pauper Firenze"};
+render=function(){_render();try{addMini()}catch(e){}if(tab==="recap"&&!roUI())rcBuild();try{const sel=document.querySelector(".top nav [aria-selected=true]");if(sel&&matchMedia("(max-width:640px)").matches)sel.scrollIntoView({inline:"center",block:"nearest"})}catch(e){}const sb=document.querySelector(".subnav [aria-selected=true]");if(sb&&sb.parentNode.scrollWidth>sb.parentNode.clientWidth)try{sb.parentNode.scrollLeft=sb.offsetLeft-20}catch(e){}if(tab==="pl"&&psq)applyPSearch();topIcons();document.title=(tab==="home"?"Bacheca":(($("#nav [aria-selected=true]")||{}).textContent||"LPF"))+" · Lega Pauper Firenze"};
 
 /* ===================== Lettura da foto senza Claude =====================
    Usa l’API di Anthropic con la chiave personale dello staff, salvata SOLO nel browser di chi la inserisce. */
@@ -2892,6 +2935,140 @@ function bubbles(dl,dtot){
 /* tierlist con le immagini dei mazzi: al passaggio del cursore nome e punteggio */
 function tierTile(n,sc){const i=deckImg(n);return `<span class="ttile"${tp(n+" "+sc)} data-fast>${i?`<img src="${esc(i.u)}" alt="${esc(n)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:""}</span>`}
 
+/* ===================== Copertina della bacheca e miniature dei mazzi ===================== */
+function favDecks(se){
+  const m={};pdOf(se).forEach(x=>{const k=nk(x.n),o=m[k]||(m[k]={});const d=canon(x.d),e=o[d]||(o[d]={n:d,c:0,last:0});e.c++;e.last=Math.max(e.last,x.g*2+(x.t==="D"?1:0))});
+  const out={};Object.entries(m).forEach(([k,o])=>{const best=Object.values(o).sort((a,b)=>b.c-a.c||b.last-a.last)[0];out[k]={n:best.n,c:best.c,tot:Object.values(o).reduce((s,x)=>s+x.c,0)}});return out;
+}
+function miniDeck(k,F){const f=F[k];if(!f)return "";const i=deckImg(f.n);return `<span class="mdk"${tp(`Mazzo ${f.tot>1?"preferito":"giocato"}: ${f.n}${f.tot>1?` (${f.c} su ${f.tot} tappe)`:""}`)} data-fast>${i?`<img src="${esc(i.u)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:""}</span>`}
+function vCover(se){
+  const pr=prOf(se),recs=se.recs.filter(r=>r.t!=="DG");
+  const ids=[...new Set(recs.map(r=>r.g+"|"+r.t))].map(s=>{const [g,t]=s.split("|");return {g:+g,t}}).sort((a,b)=>b.g-a.g||(b.t==="D")-(a.t==="D"));
+  if(!ids.length)return "";
+  const L=ids[0],rs=recs.filter(r=>r.g===L.g&&r.t===L.t);
+  const E=eloCalc(se),C=calc(se),gl=C.G.list;
+  const tb=(a,b)=>pts(b)-pts(a)||b.v-a.v||((E[nk(b.n)]||{}).elo||0)-((E[nk(a.n)]||{}).elo||0);
+  rs.sort(tb);const w=rs[0];if(!w)return "";
+  const k=nk(w.n),pd=pdOf(se).find(x=>x.g===L.g&&x.t===L.t&&nk(x.n)===k),deck=pd?canon(pd.d):"",im=deck?deckImg(deck):null;
+  const same=rs.filter(r=>pts(r)===pts(w)&&r.v===w.v).length;
+  const gp=gl.findIndex(p=>p.k===k);
+  const when=`${L.g}ª giornata · ${L.t==="M"?"Mercoledì":"Domenica"}`;
+  return `<section class="cover" data-pk="${esc(k)}"${tp(`${pName(w.n)} ha fatto il miglior risultato della ${when}: ${w.v}-${w.s}-${w.p}${deck?` con ${deck}`:""}.${same>1?` A pari merito con altri ${same-1}: in copertina chi ha l’Elo più alto.`:""}${im?`\nIllustrazione: ${cName(im.c)}${im.a?", di "+im.a:""} (Scryfall).`:""}\nClicca per la scheda del giocatore.`)}>
+    ${im?`<img class="cvart" src="${esc(im.u)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">`:""}
+    <div class="cvin"><span class="cvk">🏆 Vincitore ultima tappa</span><h2 class="cvn">${esc(pName(w.n))}</h2>
+    <div class="cvm"><span class="cvr">${w.v}-${w.s}-${w.p}</span>${deck?`<span class="cvd">${pipsOf(deck)}${esc(deck)}</span>`:""}${gp>=0?`<span class="cvg">${gp+1}° in classifica generale</span>`:""}</div></div></section>`;
+}
+const _vHome=vHome;
+vHome=function(){return vCover(season())+_vHome()};
+/* miniatura del mazzo accanto al nome: bacheca e classifiche */
+function addMini(){
+  if(!["home","G","M","D"].includes(tab))return;
+  const F=favDecks(season());
+  if(tab==="home")document.querySelectorAll(".lb li[data-pk]").forEach(li=>{if(li.querySelector(".mdk"))return;const h=miniDeck(li.dataset.pk,F);if(h)li.querySelector(".nm2").insertAdjacentHTML("beforebegin",h)});
+  else document.querySelectorAll("#view table.rank button.nm[data-k]").forEach(bt=>{if(bt.previousElementSibling&&bt.previousElementSibling.classList.contains("mdk"))return;const h=miniDeck(bt.dataset.k,F);if(h)bt.insertAdjacentHTML("beforebegin",h)});
+}
+document.addEventListener("click",e=>{const c=e.target.closest(".cover[data-pk]");if(c)openPlayer(c.dataset.pk)},true);
+
+/* ===================== Recap da condividere (solo staff) ===================== */
+TABT.recap="Area staff: prepara l’immagine verticale con il riepilogo di una tappa, pronta per le storie di Instagram e WhatsApp.";
+let rcSel="",rcNext=true,rcBusy=0;
+const GLONG=["domenica","lunedì","martedì","mercoledì","giovedì","venerdì","sabato"];
+function rcTappe(se){return [...new Set(se.recs.filter(r=>r.t!=="DG").map(r=>r.g+"|"+r.t))].map(s=>{const [g,t]=s.split("|");return {g:+g,t,id:s}}).sort((a,b)=>b.g-a.g||(b.t==="D")-(a.t==="D"))}
+function rcStats(se,g,t){
+  const E=eloCalc(se),six=S.seasons.indexOf(se);
+  const rs=se.recs.filter(r=>r.g===g&&r.t===t).slice().sort((a,b)=>pts(b)-pts(a)||b.v-a.v||((E[nk(b.n)]||{}).elo||0)-((E[nk(a.n)]||{}).elo||0));
+  const pd=pdOf(se).filter(x=>x.g===g&&x.t===t),dk2={};pd.forEach(x=>dk2[nk(x.n)]=canon(x.d));
+  const dc={};pd.forEach(x=>{const d=canon(x.d);dc[d]=(dc[d]||0)+1});
+  const topDeck=Object.entries(dc).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]))[0];
+  let colp=null,scal=null;
+  Object.values(E).forEach(p=>{let sum=0,any=false;p.log.forEach(l=>{if(l.si!==six||l.g!==g||l.t!==t)return;any=true;sum+=l.d;if(l.res==="w"&&(!colp||l.d>colp.d))colp={n:p.n,o:l.o,d:l.d,oe:l.oe,me:null}});if(any&&(!scal||sum>scal.d))scal={n:p.n,d:sum}});
+  const win=rs[0];
+  const outs=rs.filter(r=>{const d=dk2[nk(r.n)];return d&&dc[d]===1&&(!win||nk(r.n)!==nk(win.n))})[0];
+  const evId="g"+g+(t==="M"?"m":"d"),ev=EVT.find(x=>x.id===evId);
+  const ref=ev?ev.d:ymd(new Date());
+  const nx=EVT.slice().sort(evSort).find(x=>x.d>ref);
+  return {g,t,rs,win,deckOf:n=>dk2[nk(n)]||"",topDeck,colp,scal,outs:outs?{n:outs.n,d:dk2[nk(outs.n)],r:outs}:null,ev,nx,np:rs.length};
+}
+function vRecap(){
+  if(roUI())return `<div class="card"><p class="empty2">Questa sezione è riservata allo staff.</p></div>`;
+  const se=season(),L=rcTappe(se);
+  if(!L.length)return `<div class="card"><h2>📸 Recap da condividere</h2><p class="empty2">Nessuna tappa con risultati in questa stagione.</p></div>`;
+  if(!L.some(x=>x.id===rcSel))rcSel=L[0].id;
+  return `<div class="card"><h2${tp(TABT.recap)}>📸 Recap da condividere</h2>
+  <p class="sub">L’immagine si prepara da sola con i dati della tappa: vincitore con l’illustrazione del suo mazzo, podio, premi della tappa, mazzo più giocato e prossimo appuntamento. Formato verticale 1080×1920, quello delle storie.</p>
+  <div class="row" style="gap:10px 18px;margin:0 0 12px"><label>Tappa <select id="rcsel">${L.map(x=>`<option value="${x.id}"${x.id===rcSel?" selected":""}>${x.g}ª giornata · ${x.t==="M"?"Mercoledì":"Domenica"}</option>`).join("")}</select></label><label style="display:flex;align-items:center;gap:6px"><input type="checkbox" id="rcnext"${rcNext?" checked":""}> Mostra il prossimo appuntamento</label></div>
+  <div class="rcwrap"><div class="rcprev"><img id="rcimg" alt="Anteprima del recap"><p id="rcmsg" class="sub">Preparo l’immagine…</p></div>
+  <div class="rcside"><button type="button" class="b" id="rcsh">Condividi…</button><button type="button" class="g" id="rcdl">Scarica immagine</button>
+  <div class="scutopt"><b>Come pubblicarla</b><span>Dal telefono premi <b>Condividi…</b> e scegli Instagram (Storia) o WhatsApp. Dal computer premi <b>Scarica immagine</b> e caricala dove vuoi.</span></div>
+  <div class="scutopt"><b>I premi della tappa</b><span><b>Colpaccio</b>: la vittoria contro l’avversario più quotato, cioè quella che ha fatto guadagnare più Elo in un solo match.<br><b>Scalata</b>: chi ha guadagnato più Elo nella tappa.<br><b>Outsider</b>: il miglior risultato con un mazzo portato da un solo giocatore.</span></div></div></div></div>`;
+}
+function rcLoad(src){return new Promise(ok=>{if(!src)return ok(null);const i=new Image();i.crossOrigin="anonymous";i.referrerPolicy="no-referrer";i.onload=()=>ok(i);i.onerror=()=>ok(null);i.src=src})}
+function rcLogo(){const v=getComputedStyle(document.documentElement).getPropertyValue("--logo");const m=v.match(/url\(["']?(data:[^"')]+)["']?\)/);return m?m[1]:"apple-touch-icon.png"}
+function rcFit(ctx,txt,font,size,maxW){let s=size;do{ctx.font=font.replace("{s}",s);if(ctx.measureText(txt).width<=maxW)break;s-=2}while(s>18);return s}
+function rcRound(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()}
+async function rcDraw(st){
+  const W=1080,H=1920,c=document.createElement("canvas");c.width=W;c.height=H;const x=c.getContext("2d");
+  try{await Promise.all([document.fonts.load('700 80px "Cinzel"'),document.fonts.load('600 40px "Cinzel"')])}catch(e){}
+  const CZ='"Cinzel",Georgia,serif',SN='"Trebuchet MS","Segoe UI",Arial,sans-serif';
+  const wd=st.win?st.deckOf(st.win.n):"",wi=wd?deckImg(wd):null;
+  const [art,logo]=await Promise.all([rcLoad(wi&&wi.u),rcLoad(rcLogo())]);
+  /* sfondo */
+  const AH=1040;let gr=x.createLinearGradient(0,0,0,H);gr.addColorStop(0,"#3a1676");gr.addColorStop(AH/H,"#22103f");gr.addColorStop(.78,"#2b1256");gr.addColorStop(1,"#170a2c");x.fillStyle=gr;x.fillRect(0,0,W,H);
+  if(art){sc=Math.max(W/art.width,AH/art.height),dw=art.width*sc,dh=art.height*sc;x.drawImage(art,(W-dw)/2,(AH-dh)*.35,dw,dh)}
+  gr=x.createLinearGradient(0,0,0,AH);gr.addColorStop(0,"rgba(20,8,40,.6)");gr.addColorStop(.3,"rgba(20,8,40,.08)");gr.addColorStop(.68,"rgba(34,16,63,.72)");gr.addColorStop(1,"#22103f");x.fillStyle=gr;x.fillRect(0,0,W,AH+1);
+  /* testata */
+  if(logo){const o=document.createElement("canvas");o.width=o.height=120;const ox=o.getContext("2d");const s=Math.min(120/logo.width,120/logo.height);ox.drawImage(logo,(120-logo.width*s)/2,(120-logo.height*s)/2,logo.width*s,logo.height*s);ox.globalCompositeOperation="source-in";ox.fillStyle="#fff";ox.fillRect(0,0,120,120);x.drawImage(o,70,70,110,110)}
+  x.shadowColor="rgba(0,0,0,.6)";x.shadowBlur=18;x.fillStyle="#fff";x.textBaseline="alphabetic";x.font=`700 46px ${CZ}`;x.fillText("LEGA PAUPER FIRENZE",200,122);
+  const dt=st.ev?new Date(st.ev.d+"T12:00:00"):null;
+  x.font=`600 32px ${SN}`;x.fillStyle="rgba(255,255,255,.85)";x.fillText(`${st.g}ª giornata · ${st.t==="M"?"Mercoledì":"Domenica"}${dt?" "+dt.getDate()+" "+dt.toLocaleDateString("it-IT",{month:"long"}):""}`,202,170);x.shadowBlur=0;
+  /* vincitore */
+  if(st.win){
+    let y=760;x.font=`800 30px ${SN}`;const lab="🏆  VINCITORE";const lw=x.measureText(lab).width+56;rcRound(x,70,y-48,lw,64,32);x.fillStyle="rgba(255,255,255,.18)";x.fill();x.strokeStyle="rgba(255,255,255,.35)";x.lineWidth=2;x.stroke();x.fillStyle="#fff";x.fillText(lab,98,y-6);
+    const nm=pName(st.win.n);const fs=rcFit(x,nm,`700 {s}px ${CZ}`,104,940);x.font=`700 ${fs}px ${CZ}`;x.shadowColor="rgba(0,0,0,.55)";x.shadowBlur=24;x.fillStyle="#fff";x.fillText(nm,70,y+100);x.shadowBlur=0;
+    x.font=`900 56px ${SN}`;x.fillStyle="#f4d36b";const rec=`${st.win.v}-${st.win.s}-${st.win.p}`;x.fillText(rec,72,y+184);const rw=x.measureText(rec).width;
+    if(wd){x.font=`700 44px ${SN}`;x.fillStyle="#fff";const dfs=rcFit(x,wd,`700 {s}px ${SN}`,44,900-rw);x.font=`700 ${dfs}px ${SN}`;x.fillText(wd,72+rw+34,y+180)}
+  }
+  /* podio */
+  let y=1110;x.font=`700 34px ${CZ}`;x.fillStyle="#d9c6ff";x.fillText("PODIO",70,y);
+  const med=[["#f4d36b","#c39a1f"],["#e8eaee","#a9aeb8"],["#e7a66b","#a8642a"]];
+  st.rs.slice(0,3).forEach((r,i)=>{const yy=y+40+i*112;rcRound(x,60,yy,960,96,26);x.fillStyle="rgba(255,255,255,.08)";x.fill();
+    const g2=x.createLinearGradient(80,yy+14,148,yy+82);g2.addColorStop(0,med[i][0]);g2.addColorStop(1,med[i][1]);x.fillStyle=g2;x.beginPath();x.arc(118,yy+48,34,0,Math.PI*2);x.fill();
+    x.fillStyle="#2a1a05";x.font=`900 34px ${SN}`;x.textAlign="center";x.fillText(i+1,118,yy+60);x.textAlign="left";
+    x.fillStyle="#fff";const n=pName(r.n);const f=rcFit(x,n,`700 {s}px ${SN}`,40,560);x.font=`700 ${f}px ${SN}`;x.fillText(n,176,yy+46);
+    x.font=`500 28px ${SN}`;x.fillStyle="rgba(255,255,255,.72)";const d=st.deckOf(r.n);x.fillText(d||"",176,yy+80);
+    x.textAlign="right";x.font=`900 40px ${SN}`;x.fillStyle="#f4d36b";x.fillText(`${r.v}-${r.s}-${r.p}`,990,yy+62);x.textAlign="left"});
+  /* premi */
+  y=1520;x.font=`700 34px ${CZ}`;x.fillStyle="#d9c6ff";x.fillText("PREMI DELLA TAPPA",70,y);
+  const pr=[];if(st.colp)pr.push(["⚡","Colpaccio",pName(st.colp.n),`batte ${pName(st.colp.o)}`]);if(st.scal)pr.push(["📈","Scalata",pName(st.scal.n),`+${Math.round(st.scal.d)} Elo`]);if(st.outs)pr.push(["🎲","Outsider",pName(st.outs.n),st.outs.d]);
+  const cw=pr.length?(960-(pr.length-1)*20)/pr.length:0;
+  pr.forEach((p,i)=>{const xx=60+i*(cw+20),yy=y+30;rcRound(x,xx,yy,cw,176,26);x.fillStyle="rgba(255,255,255,.1)";x.fill();x.strokeStyle="rgba(217,198,255,.35)";x.lineWidth=2;x.stroke();
+    x.fillStyle="#fff";x.font=`44px ${SN}`;x.fillText(p[0],xx+24,yy+62);x.fillStyle="#d9c6ff";x.font=`800 26px ${SN}`;x.fillText(p[1].toUpperCase(),xx+82,yy+54);
+    x.fillStyle="#fff";const f=rcFit(x,p[2],`700 {s}px ${SN}`,34,cw-44);x.font=`700 ${f}px ${SN}`;x.fillText(p[2],xx+24,yy+120);
+    x.fillStyle="rgba(255,255,255,.75)";const f2=rcFit(x,p[3],`500 {s}px ${SN}`,26,cw-44);x.font=`500 ${f2}px ${SN}`;x.fillText(p[3],xx+24,yy+152)});
+  /* mazzo più giocato e partecipanti */
+  y=1772;x.font=`600 30px ${SN}`;x.fillStyle="rgba(255,255,255,.88)";
+  const info=[`${st.np} giocatori`];if(st.topDeck)info.push(`Mazzo più giocato: ${st.topDeck[0]} (${st.topDeck[1]})`);const it=info.join("   ·   ");x.font=`600 ${rcFit(x,it,`600 {s}px ${SN}`,30,940)}px ${SN}`;x.fillText(it,70,y);
+  if(rcNext&&st.nx){const d=new Date(st.nx.d+"T12:00:00");const nt=`Prossimo appuntamento: ${String(st.nx.t).split("·")[0].trim()} · ${GLONG[d.getDay()]} ${d.getDate()} ${d.toLocaleDateString("it-IT",{month:"short"})}${st.nx.h?" ore "+st.nx.h:""}`;x.fillStyle="#f4d36b";x.font=`700 ${rcFit(x,nt,`700 {s}px ${SN}`,32,940)}px ${SN}`;x.fillText(nt,70,y+54)}
+  x.font=`600 24px ${SN}`;x.fillStyle="rgba(255,255,255,.55)";x.textAlign="right";x.fillText(location.host||"Lega Pauper Firenze",1010,1880);x.textAlign="left";
+  if(wi&&art){x.font=`500 20px ${SN}`;x.fillStyle="rgba(255,255,255,.45)";x.fillText(`Illustrazione: ${cName(wi.c)}${wi.a?" – "+wi.a:""} · Scryfall`,70,1880)}
+  return c;
+}
+let rcBlob=null;
+async function rcBuild(){
+  const se=season(),[g,t]=rcSel.split("|"),st=rcStats(se,+g,t),my=++rcBusy;
+  const c=await rcDraw(st);if(my!==rcBusy)return;
+  const img=$("#rcimg"),msg=$("#rcmsg");if(!img)return;
+  try{rcBlob=await new Promise(ok=>c.toBlob(ok,"image/png"));img.src=URL.createObjectURL(rcBlob);if(msg)msg.textContent=""}catch(e){rcBlob=null;img.src=c.toDataURL("image/png");if(msg)msg.textContent=""}
+}
+function rcName(){const [g,t]=rcSel.split("|");return `LPF-recap-${g}-giornata-${t==="M"?"mercoledi":"domenica"}.png`}
+document.addEventListener("change",e=>{if(e.target.id==="rcsel"){rcSel=e.target.value;$("#rcmsg").textContent="Preparo l’immagine…";rcBuild()}else if(e.target.id==="rcnext"){rcNext=e.target.checked;rcBuild()}});
+document.addEventListener("click",async e=>{
+  if(e.target.closest("#rcdl")){if(!rcBlob)return;const u=URL.createObjectURL(rcBlob),a=document.createElement("a");a.href=u;a.download=rcName();document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),3000);return}
+  if(e.target.closest("#rcsh")){if(!rcBlob)return;const f=new File([rcBlob],rcName(),{type:"image/png"});
+    if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:"Lega Pauper Firenze"})}catch(x){}return}
+    const b=$("#rcdl");if(b)b.click();const m=$("#rcmsg");if(m)m.textContent="Questo dispositivo non permette di condividere direttamente: ho scaricato l’immagine."}
+});
+
 render();
 
 startSync();
@@ -2946,7 +3123,7 @@ startSync();
   const b=document.createElement("button");b.id="scut";b.type="button";b.className="g";b.setAttribute("data-fast","");
   const lab=mob?"Aggiungi l’icona LPF alla schermata Home del telefono: un tocco e si apre il sito.":"Aggiungi il sito ai preferiti del browser (o come app sul desktop) per aprirlo con un clic.";
   b.setAttribute("data-tip",lab);b.setAttribute("aria-label",lab);
-  b.innerHTML='<svg class="scring" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="scpath" d="M50,50 m-41,0 a41,41 0 1,1 82,0 a41,41 0 1,1 -82,0"/></defs><circle class="scbg" cx="50" cy="50" r="49"/><text><textPath href="#scpath" textLength="252" lengthAdjust="spacingAndGlyphs">AGGIUNGI SCORCIATOIA AL SITO • </textPath></text></svg><i aria-hidden="true"></i>';
+  b.innerHTML='<i aria-hidden="true"></i><span class="sclab" aria-hidden="true">Aggiungi<br>scorciatoia</span>';
   if(!done())document.body.appendChild(b);
   /* link nei ringraziamenti per riaprire le istruzioni anche dopo aver nascosto il pulsante */
   const addFoot=()=>{const f=document.querySelector("footer.thx .staffl");if(f&&!document.getElementById("scutl")){const a=document.createElement("button");a.type="button";a.id="scutl";a.className="lnk2";a.textContent=mob?"Aggiungi l’icona LPF al telefono":"Salva il sito nei preferiti";a.onclick=()=>b.click();f.append(" · ",a)}};
